@@ -8,6 +8,7 @@ import { BASE_URL, GET_SITESETTINGS, STATUS_INVOICE_ID } from "@/lib/config";
 import { useParams } from "next/navigation";
 import moment from "moment";
 import Image from "next/image";
+import Link from "next/link";
 
 type InvoiceGet = {
   invoice_number: number;
@@ -36,6 +37,7 @@ type InvoiceGet = {
       end_date: string;
       details?: string; // optional, if sometimes missing
     }[];
+    id: number;
     total_amount: string;
     transaction_id: string;
   };
@@ -57,7 +59,7 @@ export default function InvoicePage() {
 
   const routePrams = useParams();
   const [data, setData] = useState<GeneralSettings | null>(null);
-
+  console.log("kgfkjgkfjg", routePrams.id);
   const handlePrint = () => {
     window.print();
   };
@@ -165,19 +167,21 @@ export default function InvoicePage() {
                 : invoiceget?.status}
             </h2>
 
-            <button
-              style={{
-                backgroundColor: "green",
-                color: "white",
-                border: "none",
-                padding: "8px 16px",
-                borderRadius: "4px",
-                cursor: "pointer",
-                marginBottom: "6px",
-              }}
-            >
-              Pay Now
-            </button>
+            <Link href={`/checkout/${invoiceget?.subscription?.id}`}>
+              <button
+                style={{
+                  backgroundColor: "green",
+                  color: "white",
+                  border: "none",
+                  padding: "8px 16px",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                  marginBottom: "6px",
+                }}
+              >
+                Pay Now
+              </button>
+            </Link>
           </div>
         </div>
 
