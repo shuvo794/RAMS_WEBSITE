@@ -5,8 +5,8 @@ import React from "react";
 
 export default function PaymentSuccess() {
   const handleFinish = () => {
-    // redirect to dashboard or home page
-    window.location.href = "/";
+    // blueirect to dashboard or home page
+    window.location.href = "/dashboard";
   };
 
   return (
@@ -29,9 +29,9 @@ export default function PaymentSuccess() {
       {/* Finish Button */}
       <button
         onClick={handleFinish}
-        className="bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-lg font-medium transition"
+        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition"
       >
-        Finish
+        Dashboard
       </button>
     </div>
   );

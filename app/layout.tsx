@@ -24,7 +24,7 @@ export default function RootLayout({
     pathname === "/package" ||
     pathname === "/ticket" ||
     pathname === "/invoice" ||
-    pathname.startsWith("/invoice/") ||
+    // pathname.startsWith("/invoice/") ||
     pathname.startsWith("/open-ticket/") || // Handles dynamic ID route
     pathname.startsWith("/ticket/") || // Handles dynamic ID route
     pathname === "/open-ticket" ||

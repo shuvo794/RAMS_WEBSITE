@@ -144,9 +144,41 @@ export default function InvoicePage() {
             width={98}
             height={98}
           />
-          <h2 style={{ color: "green", fontSize: "16px" }}>
-            {invoiceget?.status}
-          </h2>
+          <div>
+            <h2
+              style={{
+                color:
+                  invoiceget?.status === "unpaid"
+                    ? "red"
+                    : invoiceget?.status === "paid"
+                    ? "green"
+                    : "black",
+                fontSize: "16px",
+                textAlign: "center",
+                marginTop: "5px",
+              }}
+            >
+              {invoiceget?.status === "unpaid"
+                ? "Unpaid"
+                : invoiceget?.status === "paid"
+                ? "Paid"
+                : invoiceget?.status}
+            </h2>
+
+            <button
+              style={{
+                backgroundColor: "green",
+                color: "white",
+                border: "none",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                cursor: "pointer",
+                marginBottom: "6px",
+              }}
+            >
+              Pay Now
+            </button>
+          </div>
         </div>
 
         <h1
@@ -172,14 +204,6 @@ export default function InvoicePage() {
             <p>{invoiceget?.billing_address?.country}</p>
           </div>
           <div style={{ textAlign: "right" }}>
-            <h3
-              style={{
-                fontWeight: "600",
-                marginBottom: "8px",
-              }}
-            >
-              Pay To
-            </h3>
             <p style={{ margin: 0 }}>{data?.agency_name_bangla}</p>
             <p style={{ margin: 0 }}>{data?.email}</p>
             <p style={{ margin: 0 }}>{data?.phone}</p>

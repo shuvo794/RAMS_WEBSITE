@@ -8,6 +8,7 @@ import {
   PLANSALL,
   USER_ME,
 } from "@/lib/config";
+import { AlertTriangle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Select from "react-select";
@@ -65,6 +66,7 @@ export default function SupportCheckout() {
   const [zip, setZip] = useState("");
   const router = useRouter();
   const [city, setCity] = useState("");
+
   const [userData, setUserData] = useState<UserMe | null>(null);
   const [userToken, setToken] = useState<string | null>(null);
   const [countries, setCountries] = useState<
@@ -87,6 +89,8 @@ export default function SupportCheckout() {
   const [name, setName] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [rlNumber, setRlNumber] = useState("");
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [id, setId] = useState<string | null>(null);
 
@@ -251,12 +255,14 @@ export default function SupportCheckout() {
       city?: string;
       zip?: string;
       address?: string;
-      company_name?: string;
+      companyName?: string;
     } = {};
 
     if (!country1) newErrors.country = "Country is required";
     if (!city || city.trim() === "") newErrors.city = "City is required";
     if (!zip || zip.trim() === "") newErrors.zip = "Zip is required";
+    if (!companyName || companyName.trim() === "")
+      newErrors.companyName = "Company Name is required";
     if (!address || address.trim() === "")
       newErrors.address = "Address is required";
 
@@ -301,11 +307,17 @@ export default function SupportCheckout() {
         body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to add package");
-      }
+      console.log("Status:", response.status);
 
-      const data = await response.json();
+      const data = await response.json(); // 👈 this gets { success: false, message: "..." }
+      console.log("API Response:", data);
+      if (!data.success) {
+        setErrorMessage(data.message);
+        setErrorModalOpen(true);
+        return;
+      } else {
+        router.push(`/checkout/${data.subscription_id}`);
+      }
 
       router.push(`/checkout/${data.subscription_id}`);
     } catch (error) {
@@ -316,6 +328,29 @@ export default function SupportCheckout() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 mt-24 font-sans">
       <h1 className="text-3xl font-semibold mb-6">Checkout</h1>
+      {errorModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 text-center">
+            {/* Warning Icon */}
+            <div className="flex justify-center mb-4">
+              <AlertTriangle className="h-12 w-12 text-yellow-500" />
+            </div>
+
+            {/* Message */}
+            <p className="text-gray-700 mb-6">{errorMessage}</p>
+
+            {/* Button */}
+            <div className="flex justify-center">
+              <button
+                onClick={() => setErrorModalOpen(false)}
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="grid md:grid-cols-3 gap-8">
         {/* Left Form */}
@@ -532,11 +567,31 @@ export default function SupportCheckout() {
                   <div>
                     <label className="block font-medium">Company Name</label>
                     <input
-                      className="w-full border rounded px-4 py-2"
+                      className={`w-full border rounded px-4 py-2 ${
+                        errors.companyName
+                          ? "border-red-500"
+                          : "border-gray-300"
+                      }`}
                       placeholder="Enter Company Name"
                       value={companyName || userData?.company_name}
-                      onChange={(e) => setCompanyName(e.target.value)}
+                      // onChange={(e) => setCompanyName(e.target.value)}
+                      onChange={(e) => {
+                        setCompanyName(e.target.value);
+                        // Remove error immediately if user types something
+                        if (e.target.value.trim() !== "") {
+                          setErrors((prev) => ({
+                            ...prev,
+                            companyName: undefined,
+                          }));
+                        }
+                      }}
                     />
+
+                    {errors.companyName && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.companyName}
+                      </p>
+                    )}
                   </div>
 
                   <div>

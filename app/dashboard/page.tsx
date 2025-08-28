@@ -207,6 +207,7 @@ const Page = () => {
 
         const json = await response.json();
         setInVoice(json);
+        console.log("kfjgkfjgg", json);
       } catch (error) {
         console.error("API fetch error:", error);
       } finally {

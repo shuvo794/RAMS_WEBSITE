@@ -80,9 +80,10 @@ export default function NavbarSection() {
           pathname.startsWith("/checkout/") ||
           pathname.startsWith("/edit/") ||
           pathname === "/cart" ||
-          pathname === "/PaymentSuccess" ||
-          pathname === "/paymentFailed" ||
-          pathname === "/paymentCancelled" ||
+          pathname === "/payment-success" ||
+          pathname === "/payment-failed" ||
+          pathname === "/payment-cancelled" ||
+          pathname.startsWith("/invoice/") ||
           pathname.startsWith("/cart/")
           ? "fixed top-0 bg-white shadow"
           : "fixed top-0 bg-transparent text-white"
