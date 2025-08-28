@@ -167,21 +167,23 @@ export default function InvoicePage() {
                 : invoiceget?.status}
             </h2>
 
-            <Link href={`/checkout/${invoiceget?.subscription?.id}`}>
-              <button
-                style={{
-                  backgroundColor: "green",
-                  color: "white",
-                  border: "none",
-                  padding: "8px 16px",
-                  borderRadius: "4px",
-                  cursor: "pointer",
-                  marginBottom: "6px",
-                }}
-              >
-                Pay Now
-              </button>
-            </Link>
+            {invoiceget?.status === "unpaid" && (
+              <Link href={`/checkout/${invoiceget?.subscription?.id}`}>
+                <button
+                  style={{
+                    backgroundColor: "green",
+                    color: "white",
+                    border: "none",
+                    padding: "8px 16px",
+                    borderRadius: "4px",
+                    cursor: "pointer",
+                    marginBottom: "6px",
+                  }}
+                >
+                  Pay Now
+                </button>
+              </Link>
+            )}
           </div>
         </div>
 
@@ -229,9 +231,14 @@ export default function InvoicePage() {
                 : "--"}
             </p>
           </div>
+
           <div>
             <h4 style={{ fontWeight: "600" }}>Payment Method</h4>
-            <p style={{ textAlign: "right" }}>{invoiceget?.payment_method}</p>
+            {invoiceget?.status !== "unpaid" ? (
+              <p style={{ textAlign: "right" }}>{invoiceget?.payment_method}</p>
+            ) : (
+              <p style={{ textAlign: "right" }}>---</p>
+            )}
           </div>
         </div>
 
@@ -304,46 +311,55 @@ export default function InvoicePage() {
           </div>
         </div>
 
-        <h3 style={{ fontWeight: "600", marginBottom: "12px" }}>
-          Transaction Details
-        </h3>
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            marginBottom: "24px",
-          }}
-        >
-          <thead>
-            <tr style={{ borderBottom: "1px solid #ddd" }}>
-              <th style={{ textAlign: "left", padding: "12px 0" }}>
-                Transaction Date
-              </th>
-              <th style={{ textAlign: "left", padding: "12px 0" }}>Gateway</th>
-              <th style={{ textAlign: "left", padding: "12px 0" }}>
-                Transaction ID
-              </th>
-              <th style={{ textAlign: "right", padding: "12px 0" }}>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style={{ borderBottom: "1px solid #eee" }}>
-              <td>
-                {invoiceget?.invoice_date
-                  ? moment(invoiceget.invoice_date).format("DD-MM-YYYY")
-                  : "--"}
-              </td>
-              <p>{invoiceget?.payment_method}</p>
-
-              <td style={{ fontFamily: "monospace" }}>
-                {invoiceget?.subscription?.transaction_id}
-              </td>
-              <td style={{ textAlign: "right" }}>
-                {invoiceget?.subscription?.total_amount} BDT
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        {!(invoiceget?.status === "unpaid") && (
+          <>
+            <h3 style={{ fontWeight: "600", marginBottom: "12px" }}>
+              Transaction Details
+            </h3>
+            <table
+              style={{
+                width: "100%",
+                borderCollapse: "collapse",
+                marginBottom: "24px",
+              }}
+            >
+              <thead>
+                <tr style={{ borderBottom: "1px solid #ddd" }}>
+                  <th style={{ textAlign: "left", padding: "12px 0" }}>
+                    Transaction Date
+                  </th>
+                  <th style={{ textAlign: "left", padding: "12px 0" }}>
+                    Gateway
+                  </th>
+                  <th style={{ textAlign: "left", padding: "12px 0" }}>
+                    Transaction ID
+                  </th>
+                  <th style={{ textAlign: "right", padding: "12px 0" }}>
+                    Amount
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: "1px solid #eee" }}>
+                  <td>
+                    {invoiceget?.invoice_date
+                      ? moment(invoiceget.invoice_date).format("DD-MM-YYYY")
+                      : "--"}
+                  </td>
+                  <td>{invoiceget?.payment_method || "--"}</td>
+                  <td style={{ fontFamily: "monospace" }}>
+                    {invoiceget?.subscription?.transaction_id || "--"}
+                  </td>
+                  <td style={{ textAlign: "right" }}>
+                    {invoiceget?.subscription?.total_amount
+                      ? `${invoiceget.subscription.total_amount} BDT`
+                      : "--"}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </>
+        )}
 
         {/* Buttons hidden during print */}
         <div
