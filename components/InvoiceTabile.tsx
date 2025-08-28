@@ -1,0 +1,212 @@
+"use client";
+
+import { STATUS_INVOICE } from "@/lib/config";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import moment from "moment";
+import { usePathname } from "next/navigation";
+
+type Support = {
+  ticket_department: {
+    name: string;
+  };
+  subject: string;
+  ticket_priority: {
+    name: string;
+  };
+  ticket_status: {
+    name: string;
+  };
+  ticket_number: string;
+  invoice_date: string; // Added property
+  end_date: string; // Added property
+  invoice_number: string; // Added property
+  total_amount: number; // Added property
+  status: string; // Added property
+  id: number;
+};
+
+export default function InvoiceTabile() {
+  const [support, setSupport] = useState<Support[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
+  const [size, setSize] = useState<number>(10); // page size = 1
+  const topRef = useRef<HTMLDivElement>(null);
+  const [userId, setUserId] = useState<string | null>(null);
+  const [userToken, setUserToken] = useState<string | null>(null);
+  const pathname = usePathname();
+  const lastSegment = pathname.split("/").pop(); // 'paid'
+
+  useEffect(() => {
+    const userToken = localStorage.getItem("token");
+    const userId = localStorage.getItem("id");
+
+    setUserId(userId);
+    setUserToken(userToken);
+  }, []);
+
+  useEffect(() => {
+    if (!userId || !userToken) return;
+
+    async function fetchData() {
+      try {
+        const res = await fetch(`${STATUS_INVOICE}?status=${lastSegment}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userToken}`,
+          },
+        });
+
+        const jsonDpt = await res.json();
+        setSupport(jsonDpt?.invoices || []);
+
+        const totalCount = jsonDpt?.total_elements || 0;
+        setTotalPages(Math.ceil(totalCount / size));
+        setSize(jsonDpt.size);
+      } catch (error) {
+        console.error("API fetch error:", error);
+      }
+    }
+
+    fetchData();
+  }, [userId, currentPage, size, userToken, lastSegment]);
+
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [currentPage]);
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  };
+
+  return (
+    <main className="flex-1">
+      <div ref={topRef} />
+      <h1 className="text-2xl font-bold text-blue-900 mb-4">My Invoice</h1>
+
+      {support.length === 0 ? (
+        <div className="bg-white shadow rounded p-6 text-center text-gray-500">
+          There are no Invoice
+        </div>
+      ) : (
+        <div className="bg-white shadow rounded">
+          <div className="flex items-center justify-between bg-gray-700 text-white px-4 py-2">
+            <span className="text-sm">
+              Page {currentPage} of {totalPages}
+            </span>
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search"
+                className="pl-8 pr-3 py-1 rounded text-sm text-black placeholder-gray-400 focus:outline-none"
+              />
+              <svg
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM14 8a6 6 0 11-12 0 6 6 0 0112 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-sm text-left">
+              <thead className="bg-white border-b">
+                <tr>
+                  <th className="p-4 text-center">Invoice</th>
+                  <th className="p-4 text-center">Invoice Date</th>
+                  <th className="p-4 text-center">Due Date</th>
+                  <th className="p-4 text-center">Total</th>
+                  <th className="p-4 text-center">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {support.map((item, idx) => (
+                  <tr key={idx} className="border-b hover:bg-gray-50">
+                    <td className="p-4 text-center">{item?.invoice_number}</td>
+                    <td className="p-4 text-center">
+                      {item?.invoice_date
+                        ? moment(item.invoice_date).format("DD-MM-YYYY")
+                        : "--"}
+                    </td>
+                    <td className="p-4 text-center">
+                      {item?.invoice_date
+                        ? moment(item.end_date).format("DD-MM-YYYY")
+                        : "--"}
+                    </td>
+                    <td className="p-4 text-center">{item?.total_amount}</td>
+                    {/* <td className="p-4">{item.ticket_priority?.name}</td> */}
+                    <td className="p-4 text-center">
+                      <Link href={`/invoice/${item.id}`}>
+                        {" "}
+                        <button className="bg-gray-800 text-white px-4 py-2 rounded">
+                          {item?.status}
+                        </button>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {/* Pagination */}
+            <div className="flex justify-end mt-4 mb-4 m-3  space-x-2 flex-wrap">
+              <button
+                onClick={handlePreviousPage}
+                disabled={currentPage === 1}
+                className={cn(
+                  "px-4 py-2 rounded border",
+                  currentPage === 1
+                    ? "text-gray-400 border-gray-300 cursor-not-allowed"
+                    : "text-blue-600 border-blue-600 hover:bg-blue-100"
+                )}
+              >
+                Previous
+              </button>
+
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={cn(
+                    "px-4 py-2 rounded border",
+                    currentPage === i + 1
+                      ? "bg-blue-600 text-white border-blue-600"
+                      : "text-gray-700 border-gray-300 hover:bg-gray-100"
+                  )}
+                >
+                  {i + 1}
+                </button>
+              ))}
+
+              <button
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+                className={cn(
+                  "px-4 py-2 rounded border",
+                  currentPage === totalPages
+                    ? "text-gray-400 border-gray-300 cursor-not-allowed"
+                    : "text-blue-600 border-blue-600 hover:bg-blue-100"
+                )}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </main>
+  );
+}

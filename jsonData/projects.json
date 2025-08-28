@@ -1,0 +1,1501 @@
+[
+  {
+    "Sl": 1,
+    "Company Name": "Uapp",
+    "Service": "Custom CMS Solution",
+    "Category": "rams",
+    "Description": "UAPP is a platform that aims to empower students on their journey towards higher education and enable institutions to seamlessly recruit quality students.  Join us today to experience a revolutionary approach, where technology and expertise converge to shape your path of academic excellence.",
+    "details": {
+      "client": "Uapp",
+      "technology": "React, Django, PostgreSQL",
+      "industry": "Human Resources",
+      "date": "2023",
+      "website": "https://uapp.uk/"
+    }
+  },
+
+    {
+      "Sl": 2,
+      "Company Name": "Lubdok",
+      "Service": "E-commerce website",
+      "Category": "e-com",
+      "Description": "Lubdok.com is an online platform specializing in surveillance equipment. One of their featured products is the PTS-306 Indoor Scanner Mover CCTV Camera, which is available for purchase through their website or at Pro CCTV Solution branches.",
+      "details": {
+        "client": "Lubdok",
+        "technology": "Next.js, React, PostgreSQL",
+        "industry": "E-commerce website ",
+        "date": "2023",
+        "website": "https://lubdok.com/"
+      }
+    },
+    {
+      "Sl": 3,
+      "Company Name": "Bangladesh Association of International Recruiting Agencies BAIRA",
+      "Service": "Software + Website",
+      "Category": "rams",
+      "Description": "Delivers integrated software and website solutions to streamline operations for international recruiting agencies under BAIRA.",
+      "details": {
+        "client": "Bangladesh Association of International Recruiting Agencies (BAIRA)",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 4,
+      "Company Name": "Active Manpower Service",
+      "Service": "RAMS Software +Website",
+      "Category": "rams",
+      "Description": "Provides RAMS software and website solutions to enhance recruitment process automation for manpower agencies.",
+      "details": {
+        "client": "Active Manpower Service",
+        "technology": "React, Next.js, Python, Django, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "http://activemanpowerservices.com/"
+      }
+    },
+    {
+      "Sl": 5,
+      "Company Name": "Akash Bhraman",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Offers RAMS software for efficient travel agency management and overseas employment tracking.",
+      "details": {
+        "client": "Akash Bhraman",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 6,
+      "Company Name": "Air Trade Manpower Services",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Specializes in RAMS software to streamline manpower recruitment and international deployment processes.",
+      "details": {
+        "client": "Air Trade Manpower Services",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 7,
+      "Company Name": "Aviate International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Implements RAMS software solutions for aviation and travel agency workforce management.",
+      "details": {
+        "client": "Aviate International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 8,
+      "Company Name": "Business Alliance",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Deploys RAMS software to optimize business operations and recruitment workflows for corporate clients.",
+      "details": {
+        "client": "Business Alliance",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 9,
+      "Company Name": "BD Star International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for international recruitment agencies to manage candidate databases and compliance.",
+      "details": {
+        "client": "BD Star International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 10,
+      "Company Name": "Easyway International ltd",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Simplifies overseas recruitment processes with user-friendly RAMS software solutions.",
+      "details": {
+        "client": "Easy Way International Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 11,
+      "Company Name": "Freedom Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Empowers global recruitment agencies with RAMS software for transparent candidate tracking.",
+      "details": {
+        "client": "Freedom Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 12,
+      "Company Name": "Fima Overseas Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances overseas workforce management with RAMS software tailored for recruitment agencies.",
+      "details": {
+        "client": "Fima Overseas Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 13,
+      "Company Name": "Human Resource Development Center",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports HR operations with RAMS software for talent acquisition and workforce analytics.",
+      "details": {
+        "client": "Human Resource Development Center",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 14,
+      "Company Name": "Mashallah Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Facilitates overseas employment processes with RAMS software for recruitment agencies.",
+      "details": {
+        "client": "Mashallah Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 15,
+      "Company Name": "Poly World Service",
+      "Service": "RAMS Software +Website",
+      "Category": "rams",
+      "Description": "Combines RAMS software and website development to modernize recruitment agency operations.",
+      "details": {
+        "client": "Poly Would Service",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 16,
+      "Company Name": "Surma International Ltd",
+      "Service": "RAMS Software +Website",
+      "Category": "rams",
+      "Description": "Delivers end-to-end RAMS software and web solutions for international recruitment agencies.",
+      "details": {
+        "client": "Surma International Ltd",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 17,
+      "Company Name": "The Super Eastern Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes recruitment workflows with RAMS software for Eastern regional manpower agencies.",
+      "details": {
+        "client": "The Super Eastern Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 18,
+      "Company Name": "Winner Overseas Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software solutions to streamline overseas recruitment and candidate management.",
+      "details": {
+        "client": "Winner Overseas Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 19,
+      "Company Name": "City Air International",
+      "Service": "RAMS Software +Website",
+      "Category": "rams",
+      "Description": "Supports aviation recruitment with RAMS software and custom websites for client engagement.",
+      "details": {
+        "client": "City Air International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 20,
+      "Company Name": "Al-Mohammad International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enables efficient global workforce deployment with RAMS software for recruitment agencies.",
+      "details": {
+        "client": "Al-Mohammad International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 21,
+      "Company Name": "A. Halim International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software solutions for international recruitment and workforce management.",
+      "details": {
+        "client": "A. Halim International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 22,
+      "Company Name": "Al-Tamim Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes overseas manpower deployment with tailored RAMS software for recruitment agencies.",
+      "details": {
+        "client": "Al-Tamim Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 23,
+      "Company Name": "Air Connection Overseas Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports aviation recruitment agencies with RAMS software for crew management and compliance.",
+      "details": {
+        "client": "Air Connection Overseas Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 24,
+      "Company Name": "Barcelona Overseas (Pvt.) Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enables efficient overseas workforce tracking and deployment through RAMS software.",
+      "details": {
+        "client": "Barcelona Overseas (Pvt.) Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 25,
+      "Company Name": "Air Link Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Streamlines aviation recruitment processes with RAMS software for global talent acquisition.",
+      "details": {
+        "client": "Air Link Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 26,
+      "Company Name": "Beta Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software solutions for overseas recruitment and candidate database management.",
+      "details": {
+        "client": "Beta Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 27,
+      "Company Name": "Bizbon International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Empowers businesses with RAMS software for international recruitment and HR automation.",
+      "details": {
+        "client": "Bizbon International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 28,
+      "Company Name": "Al Hamja Overseas Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Facilitates overseas workforce deployment with RAMS software tailored for recruitment agencies.",
+      "details": {
+        "client": "Al Hamja Overseas Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 29,
+      "Company Name": "Concorde Apex",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for streamlined recruitment and compliance management in global staffing.",
+      "details": {
+        "client": "Concorde Apex",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 30,
+      "Company Name": "Dacca Exports",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances recruitment workflows for export-oriented manpower agencies using RAMS software.",
+      "details": {
+        "client": "Dacca Exports",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 31,
+      "Company Name": "Delwar Trade International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports international trade recruitment with RAMS software for candidate tracking and compliance.",
+      "details": {
+        "client": "Delwar Trade International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 32,
+      "Company Name": "DMJ Trade International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes trade-related recruitment processes with RAMS software for workforce management.",
+      "details": {
+        "client": "DMJ Trade International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 33,
+      "Company Name": "Al Jahan International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software solutions for global recruitment agencies to manage overseas deployments.",
+      "details": {
+        "client": "Al Jahan International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 34,
+      "Company Name": "Elegants Overseas Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enables seamless international recruitment workflows with user-friendly RAMS software.",
+      "details": {
+        "client": "Elegants Overseas Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 35,
+      "Company Name": "Anz Multi International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides multi-functional RAMS software for diverse international recruitment needs.",
+      "details": {
+        "client": "Anz Multi International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 36,
+      "Company Name": "Farhan Aviation Services",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Specializes in RAMS software for aviation recruitment and crew management solutions.",
+      "details": {
+        "client": "Farhan Aviation Services",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 37,
+      "Company Name": "A.B. Establishment Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Offers RAMS software to automate recruitment workflows for corporate staffing agencies.",
+      "details": {
+        "client": "A.B. Establishment Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 38,
+      "Company Name": "Al-Imran International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Streamlines overseas recruitment processes with RAMS software for compliance and candidate tracking.",
+      "details": {
+        "client": "Al-Imran International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 39,
+      "Company Name": "Good Link International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Connects global talent with employers through RAMS software for recruitment agencies.",
+      "details": {
+        "client": "Good Link International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 40,
+      "Company Name": "Green Plaque International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances recruitment efficiency with eco-friendly RAMS software solutions for staffing agencies.",
+      "details": {
+        "client": "Green Plaque International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 41,
+      "Company Name": "H.A. International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for international HR management and workforce analytics.",
+      "details": {
+        "client": "H.A. International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 42,
+      "Company Name": "Hope Human Resources",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Empowers HR teams with RAMS software for talent acquisition and recruitment automation.",
+      "details": {
+        "client": "Hope Human Resources",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 43,
+      "Company Name": "Al-Noor International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Illuminates recruitment workflows with RAMS software for global manpower agencies.",
+      "details": {
+        "client": "Al-Noor International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 44,
+      "Company Name": "Jafar International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software solutions for international staffing and candidate management.",
+      "details": {
+        "client": "Jafar International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 45,
+      "Company Name": "JSK Travels",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes travel agency recruitment with RAMS software for tourism workforce management.",
+      "details": {
+        "client": "JSK Travels",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 46,
+      "Company Name": "Khan Tours & Travels",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances travel agency operations with RAMS software for staff recruitment and deployment.",
+      "details": {
+        "client": "Khan Tours & Travels",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 47,
+      "Company Name": "Labbaik International",
+      "Service": "RAMS Software +Website",
+      "Category": "rams",
+      "Description": "Combines RAMS software and website solutions for pilgrimage travel recruitment agencies.",
+      "details": {
+        "client": "Labbaik International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 48,
+      "Company Name": "Life Line International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for healthcare and overseas recruitment workforce management.",
+      "details": {
+        "client": "Life Line International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 49,
+      "Company Name": "M.M.R. Overseas Business",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Streamlines overseas business recruitment with RAMS software for compliance and tracking.",
+      "details": {
+        "client": "M.M.R. Overseas Business",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 50,
+      "Company Name": "Madina Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Facilitates Middle East-focused recruitment with RAMS software for manpower agencies.",
+      "details": {
+        "client": "Madina Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 51,
+      "Company Name": "Salman Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Offers RAMS software for overseas recruitment agencies to manage candidate pipelines.",
+      "details": {
+        "client": "Salman Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 52,
+      "Company Name": "Ocean View International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for maritime and logistics recruitment workforce management.",
+      "details": {
+        "client": "Ocean View International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 53,
+      "Company Name": "Al-Abloom International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances international recruitment workflows with RAMS software for staffing agencies.",
+      "details": {
+        "client": "Al-Abloom International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 54,
+      "Company Name": "Mother Overseas Systems Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software for maternal healthcare recruitment and overseas staffing solutions.",
+      "details": {
+        "client": "Mother Overseas Systems Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 55,
+      "Company Name": "Mamun Enterprice",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes enterprise-level recruitment with RAMS software for global workforce deployment.",
+      "details": {
+        "client": "Mamun Enterprice",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 56,
+      "Company Name": "Nizam Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Streamlines overseas recruitment processes with RAMS software for compliance management.",
+      "details": {
+        "client": "Nizam Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 57,
+      "Company Name": "Nurjahan Recruiting Agency",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Empowers recruitment agencies with RAMS software for candidate tracking and deployment.",
+      "details": {
+        "client": "Nurjahan Recruiting Agency",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 58,
+      "Company Name": "Orchid View Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances recruitment workflows with RAMS software for hospitality and overseas staffing.",
+      "details": {
+        "client": "Orchid View Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 59,
+      "Company Name": "Mamnum Tour Travels",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports travel agency recruitment with RAMS software for tour staff management.",
+      "details": {
+        "client": "Mamnum Tour Travels",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 60,
+      "Company Name": "Panjery Global Service",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software for global recruitment agencies to manage cross-border staffing.",
+      "details": {
+        "client": "Panjery Global Service",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 61,
+      "Company Name": "Rabah International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Streamlines international recruitment processes with RAMS software for workforce compliance.",
+      "details": {
+        "client": "Rabah International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 62,
+      "Company Name": "Rafiq & Sons International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes family-run recruitment agencies with RAMS software for overseas deployments.",
+      "details": {
+        "client": "Rafiq & Sons International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 63,
+      "Company Name": "Ruma Overseas International Ltd",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for international recruitment agencies to streamline operations.",
+      "details": {
+        "client": "Ruma Overseas International Ltd",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 64,
+      "Company Name": "Saiful Travel Agency",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances travel recruitment workflows with RAMS software for tour staff management.",
+      "details": {
+        "client": "Saiful Travel Agency",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 65,
+      "Company Name": "Kashem Telecom",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports telecom recruitment agencies with RAMS software for workforce tracking.",
+      "details": {
+        "client": "Kashem Telecom",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 66,
+      "Company Name": "RS International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software solutions for global staffing and recruitment compliance.",
+      "details": {
+        "client": "RS International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 67,
+      "Company Name": "S.M. International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes international recruitment workflows with RAMS software for candidate management.",
+      "details": {
+        "client": "S.M. International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 68,
+      "Company Name": "Shahena Tours & Travels",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for travel agency recruitment and staff deployment tracking.",
+      "details": {
+        "client": "Shahena Tours & Travels",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 69,
+      "Company Name": "Star Manpower Service",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Empowers manpower agencies with RAMS software for overseas recruitment excellence.",
+      "details": {
+        "client": "Star Manpower Service",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 70,
+      "Company Name": "Sylhet Enterprise Limited",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances regional recruitment workflows with RAMS software for Sylhet-based agencies.",
+      "details": {
+        "client": "Sylhet Enterprise Limited",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 71,
+      "Company Name": "Tazba International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Streamlines international recruitment with RAMS software for workforce compliance.",
+      "details": {
+        "client": "Tazba International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 72,
+      "Company Name": "The Green International Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports eco-friendly recruitment agencies with RAMS software for global staffing.",
+      "details": {
+        "client": "The Green International Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 73,
+      "Company Name": "Al-Ajeer International Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software for international recruitment agencies to manage deployments.",
+      "details": {
+        "client": "Al-Ajeer International Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 74,
+      "Company Name": "Tower Trade International Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes trade-focused recruitment with RAMS software for global workforce management.",
+      "details": {
+        "client": "Tower Trade International Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 75,
+      "Company Name": "Siddique Air International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for aviation recruitment and crew deployment tracking.",
+      "details": {
+        "client": "Siddique Air International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 76,
+      "Company Name": "Amda Tours & Travels",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances travel agency recruitment with RAMS software for staff and logistics management.",
+      "details": {
+        "client": "Amda Tours & Travels",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 77,
+      "Company Name": "Chartered Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Streamlines overseas recruitment processes with RAMS software for certified agencies.",
+      "details": {
+        "client": "Chartered Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 78,
+      "Company Name": "Fahim Air Way",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports aviation recruitment with RAMS software for flight crew and staff management.",
+      "details": {
+        "client": "Fahim Air Way",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 79,
+      "Company Name": "Hyun Tours & Travels",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software for travel agencies to manage recruitment and tour operations.",
+      "details": {
+        "client": "Hyun Tours & Travels",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 80,
+      "Company Name": "Intra Link",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Connects recruitment agencies with RAMS software for internal and overseas staffing.",
+      "details": {
+        "client": "Intra Link",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 81,
+      "Company Name": "Just Way Aviation",
+      "Service": "RAMS Software +Website",
+      "Category": "rams",
+      "Description": "Combines RAMS software and web solutions for aviation recruitment and client engagement.",
+      "details": {
+        "client": "Just Way Aviation",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 82,
+      "Company Name": "Khadem Group",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Empowers corporate recruitment with RAMS software for workforce management and analytics.",
+      "details": {
+        "client": "Khadem Group",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 83,
+      "Company Name": "Megna Air Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes aviation recruitment with RAMS software for overseas crew deployment.",
+      "details": {
+        "client": "Megna Air Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 84,
+      "Company Name": "Mizabe Rahmat Aviation",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for aviation staffing agencies to streamline crew management.",
+      "details": {
+        "client": "Mizabe Rahmat Aviation",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 85,
+      "Company Name": "Well-Air-International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances aviation recruitment workflows with RAMS software for global talent acquisition.",
+      "details": {
+        "client": "Well-Air-International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 86,
+      "Company Name": "Al-Arafah Aviation",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports aviation agencies with RAMS software for recruitment and compliance tracking.",
+      "details": {
+        "client": "Al-Arafah Aviation",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 87,
+      "Company Name": "The Dhaka Travels",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software for Dhaka-based travel agencies to manage recruitment and tours.",
+      "details": {
+        "client": "The Dhaka Travels",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 88,
+      "Company Name": "Jamadder & Syed Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Streamlines overseas recruitment with RAMS software for partnership-based agencies.",
+      "details": {
+        "client": "Jamadder & Syed Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 89,
+      "Company Name": "Saad International Ltd",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for international recruitment agencies to optimize workflows.",
+      "details": {
+        "client": "Saad International Ltd",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 90,
+      "Company Name": "Siyam Tours _ Travels",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances travel agency recruitment with RAMS software for tour staff management.",
+      "details": {
+        "client": "Siyam Tours _ Travels",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 91,
+      "Company Name": "STC Student _ Tourism Care",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports student and tourism recruitment with RAMS software for compliance tracking.",
+      "details": {
+        "client": "STC Student _ Tourism Care",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 92,
+      "Company Name": "Orvil International Overseas Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software for international recruitment agencies to manage deployments.",
+      "details": {
+        "client": "Orvil International Overseas Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 93,
+      "Company Name": "Ratul Trading Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes trade-focused recruitment with RAMS software for global workforce management.",
+      "details": {
+        "client": "Ratul Trading Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 94,
+      "Company Name": "Red Sea Air Service",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for aviation recruitment and Red Sea regional staffing solutions.",
+      "details": {
+        "client": "Red Sea Air Service",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 95,
+      "Company Name": "Reliable International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Ensures reliable recruitment workflows with RAMS software for overseas staffing agencies.",
+      "details": {
+        "client": "Reliable International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 96,
+      "Company Name": "Nusaiba Tread International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports international recruitment with RAMS software for workforce compliance.",
+      "details": {
+        "client": "Nusaiba Tread International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 97,
+      "Company Name": "MMR Group",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software for group-level recruitment agencies to manage global staffing.",
+      "details": {
+        "client": "MMR Group",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 98,
+      "Company Name": "RM Enterprise",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Empowers enterprises with RAMS software for recruitment and workforce analytics.",
+      "details": {
+        "client": "RM Enterprise",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 99,
+      "Company Name": "N.M.S.S. International",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Streamlines international recruitment workflows with RAMS software for staffing agencies.",
+      "details": {
+        "client": "N.M.S.S. International",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 100,
+      "Company Name": "Mamun Enterprise Ltd.",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for enterprise-level recruitment and workforce management.",
+      "details": {
+        "client": "Mamun Enterprise Ltd.",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 101,
+      "Company Name": "Al Mahmud Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes overseas recruitment processes with RAMS software for staffing agencies.",
+      "details": {
+        "client": "Al Mahmud Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 102,
+      "Company Name": "Shamim Travels",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Enhances travel agency recruitment with RAMS software for staff and tour management.",
+      "details": {
+        "client": "Shamim Travels",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 103,
+      "Company Name": "Fusoin Tourism",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Supports tourism recruitment with RAMS software for workforce deployment tracking.",
+      "details": {
+        "client": "Fusoin Tourism",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 104,
+      "Company Name": "M/S S Zishan Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Delivers RAMS software for overseas recruitment agencies to streamline operations.",
+      "details": {
+        "client": "M/S S Zishan Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 105,
+      "Company Name": "M/S Takia Overseas",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Provides RAMS software for international staffing agencies to manage candidate pipelines.",
+      "details": {
+        "client": "M/S Takia Overseas",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 106,
+      "Company Name": "Al Khalij International Ltd",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Optimizes Gulf region recruitment with RAMS software for overseas workforce management.",
+      "details": {
+        "client": "Al Khalij International Ltd",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    },
+    {
+      "Sl": 107,
+      "Company Name": "Al Wahed Manpower Services",
+      "Service": "RAMS Software",
+      "Category": "rams",
+      "Description": "Empowers manpower agencies with RAMS software for seamless overseas recruitment.",
+      "details": {
+        "client": "Al Wahed Manpower Services",
+        "technology": "React, Express, PostgreSQL",
+        "industry": "Human Resources",
+        "date": "2023",
+        "website": "https://example.com"
+      }
+    }
+]
