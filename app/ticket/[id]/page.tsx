@@ -98,7 +98,7 @@ type TicketDetail = {
   };
   created_at?: string;
   images?: Array<{
-    id: Key | null | undefined;
+    id: null | undefined;
     image?: FileList;
     // ... other fields if needed
   }>;
