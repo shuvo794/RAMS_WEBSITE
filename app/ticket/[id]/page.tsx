@@ -98,6 +98,7 @@ type TicketDetail = {
   };
   created_at?: string;
   images?: Array<{
+    id: Key | null | undefined;
     image?: FileList;
     // ... other fields if needed
   }>;
@@ -127,7 +128,14 @@ const TicketItemPage = () => {
   const [data, setData] = useState<GeneralSettings | null>(null);
   const [contuct, setContuct] = useState<GeneralSettings | null>(null);
   const [userData, setUserData] = useState<UserMe | null>(null);
+  const [modalImage, setModalImage] = useState<string | null>(null); // store clicked image URL
 
+  interface ModalHandler {
+    (imageUrl: string): void;
+  }
+
+  const handleOpenModal: ModalHandler = (imageUrl) => setModalImage(imageUrl);
+  const handleCloseModal = () => setModalImage(null);
   const [loadingUser, setLoadingUser] = useState(true);
   const [loadingSettings, setLoadingSettings] = useState(true);
   const [userId, setUserId] = useState<string | null>(null);
@@ -219,24 +227,23 @@ const TicketItemPage = () => {
   };
 
   const onSubmit = async (data: SignUpFormInputs) => {
-    const formData = new FormData();
+    if (!data.message && (!data.image || data.image.length === 0)) {
+      Swal.fire("Error", "Please enter a message or attach a file.", "error");
+      return;
+    }
 
-    formData.append("message", data.message);
+    const formData = new FormData();
+    if (data.message) formData.append("message", data.message);
     formData.append("email", userEmail ?? "");
     formData.append("password", userPass ?? "");
-    if (pathId !== undefined) {
-      formData.append("ticket", String(pathId));
-    }
-    if (data.image && data.image.length > 0) {
+    if (pathId !== undefined) formData.append("ticket", String(pathId));
+    if (data.image && data.image.length > 0)
       formData.append("image", data.image[0]);
-    }
 
     try {
       const response = await fetch(TICKET_POST, {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
+        headers: { Authorization: `Bearer ${userToken}` },
         body: formData,
       });
 
@@ -245,13 +252,12 @@ const TicketItemPage = () => {
         return;
       }
 
-      // ✅ Refetch ticket data after successful message post
+      // Refetch ticket data
       const updatedRes = await fetch(`${TICKET_CHECK_ID}${pathId}`);
       const updatedData = await updatedRes.json();
       setData(updatedData);
 
-      // ✅ Reset form fields
-      methods.reset();
+      methods.reset(); // reset form
     } catch (error) {
       console.error("Post message error:", error);
       Swal.fire("Error", "Something went wrong.", "error");
@@ -450,85 +456,177 @@ const TicketItemPage = () => {
                       {data?.ticket_details?.[0]?.created_at}
                     </span> */}
                   </div>
-                  {data?.ticket_details?.map((ticket, index) => {
-                    const isAdmin = !!ticket.admin;
+                  <>
+                    {data?.ticket_details?.map((ticket, index) => {
+                      const isAdmin = !!ticket.admin;
+                      const name = isAdmin
+                        ? `${ticket.admin?.first_name || ""} ${
+                            ticket.admin?.last_name || ""
+                          }`
+                        : `${ticket.customer?.first_name || ""} ${
+                            ticket.customer?.last_name || ""
+                          }`;
 
-                    const name = isAdmin
-                      ? `${ticket.admin?.first_name || ""} ${
-                          ticket.admin?.last_name || ""
-                        }`
-                      : `${ticket.customer?.first_name || ""} ${
-                          ticket.customer?.last_name || ""
-                        }`;
+                      const userImage = isAdmin
+                        ? ticket.admin?.image
+                          ? `${BASE_URL}${ticket.admin.image}`
+                          : "/admin.jpg"
+                        : ticket.customer?.image
+                        ? `${BASE_URL}${ticket.customer.image}`
+                        : "/admin.jpg";
 
-                    const image = isAdmin
-                      ? ticket.admin?.image
-                        ? `${BASE_URL}${ticket.admin.image}`
-                        : "/admin.jpg"
-                      : ticket.customer?.image
-                      ? `${BASE_URL}${ticket.customer.image}`
-                      : "/admin.jpg";
+                      const time = new Date(
+                        ticket.created_at ?? ""
+                      ).toLocaleString("en-GB", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      });
 
-                    const time = new Date(
-                      ticket.created_at ?? ""
-                    ).toLocaleString("en-GB", {
-                      day: "2-digit",
-                      month: "2-digit",
-                      year: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    });
+                      return (
+                        <div
+                          key={index}
+                          className={`flex mb-6 ${
+                            isAdmin ? "justify-end" : "justify-start"
+                          }`}
+                        >
+                          {!isAdmin && (
+                            <Image
+                              src={userImage}
+                              alt="customer"
+                              className="w-8 h-8 rounded-full mr-2"
+                              width={32}
+                              height={32}
+                            />
+                          )}
 
-                    return (
-                      <div
-                        key={index}
-                        className={`flex mb-6 ${
-                          isAdmin ? "justify-end" : "justify-start"
-                        }`}
-                      >
-                        {!isAdmin && (
-                          <Image
-                            src={image}
-                            alt="customer"
-                            className="w-8 h-8 rounded-full mr-2"
-                            width={15}
-                            height={8}
-                          />
-                        )}
+                          <div className="max-w-lg bg-gray-100 p-3 rounded-lg shadow text-sm">
+                            <div className="font-semibold mb-1">{name}</div>
+                            <div className="text-xs text-gray-500 whitespace-pre-line break-words">
+                              {ticket.message}
+                            </div>
 
-                        <div className="max-w-xs bg-gray-100 p-3 rounded-lg shadow text-sm">
-                          <div className="font-semibold mb-1">{name}</div>
-                          <div className="text-gray-700 mb-1">
-                            {ticket.message}
-                            {/* If ticket has an image property, render it here. Otherwise, remove or adjust as needed. */}
-                            {/* Example: */}
-                            {Array.isArray(ticket.images) &&
-                              ticket.images.length > 0 &&
-                              ticket.images[0].image && (
-                                <Image
-                                  src={`${BASE_URL}${ticket.images[0].image}`}
-                                  alt="attachment"
-                                  className="w-20 h-20 rounded ml-2 mt-2"
-                                  width={80}
-                                  height={80}
-                                />
-                              )}
+                            <div className="text-gray-700 mb-1">
+                              {/* Ticket attachments */}
+                              {Array.isArray(ticket.images) &&
+                                ticket.images.map((file) => {
+                                  if (!file.image) return null;
+
+                                  const fileUrl = `${BASE_URL}${file.image}`;
+                                  const extension =
+                                    typeof file.image === "string"
+                                      ? (file.image as string)
+                                          .split(".")
+                                          .pop()
+                                          ?.toLowerCase()
+                                      : undefined;
+
+                                  const isImage = [
+                                    "jpg",
+                                    "jpeg",
+                                    "png",
+                                    "gif",
+                                    "webp",
+                                  ].includes(extension!);
+                                  const isPdf = extension === "pdf";
+                                  const isDoc = ["doc", "docx"].includes(
+                                    extension!
+                                  );
+
+                                  return (
+                                    <div
+                                      key={file.id}
+                                      className="inline-block ml-2 mt-2"
+                                    >
+                                      {isImage ? (
+                                        <Image
+                                          src={fileUrl}
+                                          alt="attachment"
+                                          className="w-20 h-20 rounded cursor-pointer object-cover"
+                                          width={80}
+                                          height={80}
+                                          onClick={() =>
+                                            handleOpenModal(fileUrl)
+                                          }
+                                        />
+                                      ) : isPdf ? (
+                                        <div
+                                          className="w-20 h-20 rounded bg-red-600 flex items-center justify-center text-white font-semibold cursor-pointer"
+                                          onClick={() =>
+                                            window.open(fileUrl, "_blank")
+                                          }
+                                        >
+                                          PDF
+                                        </div>
+                                      ) : isDoc ? (
+                                        <div
+                                          className="w-20 h-20 rounded bg-blue-200 flex items-center justify-center text-blue-700 font-semibold cursor-pointer"
+                                          onClick={() =>
+                                            window.open(fileUrl, "_blank")
+                                          }
+                                        >
+                                          DOC
+                                        </div>
+                                      ) : (
+                                        <div
+                                          className="w-20 h-20 rounded bg-green-700 flex items-center justify-center text-white font-semibold cursor-pointer"
+                                          onClick={() =>
+                                            window.open(fileUrl, "_blank")
+                                          }
+                                        >
+                                          FILE
+                                        </div>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                            </div>
+
+                            <div className="text-xs text-gray-500">{time}</div>
                           </div>
-                          <div className="text-xs text-gray-500">{time}</div>
-                        </div>
 
-                        {isAdmin && (
+                          {isAdmin && (
+                            <Image
+                              src={userImage}
+                              alt="admin"
+                              className="w-8 h-8 rounded-full ml-2"
+                              width={32}
+                              height={32}
+                            />
+                          )}
+                        </div>
+                      );
+                    })}
+
+                    {/* Modal */}
+                    {modalImage && (
+                      <div
+                        className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+                        onClick={handleCloseModal}
+                      >
+                        <div
+                          className="relative"
+                          onClick={(e) => e.stopPropagation()}
+                        >
                           <Image
-                            src={image}
-                            alt="admin"
-                            className="w-8 h-8 rounded-full ml-2"
-                            width={15}
-                            height={8}
+                            src={modalImage}
+                            alt="attachment large"
+                            className="rounded"
+                            width={600}
+                            height={600}
                           />
-                        )}
+                          <button
+                            className="absolute top-2 right-2 text-red-600 text-xl font-bold"
+                            onClick={handleCloseModal}
+                          >
+                            ×
+                          </button>
+                        </div>
                       </div>
-                    );
-                  })}
+                    )}
+                  </>
 
                   {/* New Message Form */}
                   <div className="mb-5">
@@ -540,6 +638,12 @@ const TicketItemPage = () => {
                       rows={4}
                       placeholder="Enter your message"
                       className="w-full border border-gray-300 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" && !e.shiftKey) {
+                          e.preventDefault();
+                          handleSubmit(onSubmit)();
+                        }
+                      }}
                     />
                   </div>
                   {/* File Upload */}

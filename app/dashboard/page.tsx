@@ -595,21 +595,22 @@ const Page = () => {
                 </Link>
               </div>
               {ticket?.map((item) => (
-                <ul key={item.id} className="mt-4 text-sm space-y-2">
-                  <li>
-                    <span className="font-medium">#{item.ticket_number}</span> -{" "}
-                    {item.subject}
-                    <span
-                      className={`ml-2 px-3 py-1  rounded text-xs text-white ${
-                        item.ticket_status?.name?.toLowerCase() === "open"
-                          ? "bg-orange-500"
-                          : "bg-black"
-                      }`}
-                    >
-                      {item.ticket_status?.name}
-                    </span>
-                  </li>
-                </ul>
+                <Link key={item.id} href={`/ticket/${item.id}`}>
+                  <ul className="mt-4 text-sm space-y-2">
+                    <li>
+                      <span className="font-medium">#{item.ticket_number}</span>
+                      <span
+                        className={`ml-2 px-3 py-1  rounded text-xs text-white ${
+                          item.ticket_status?.name?.toLowerCase() === "open"
+                            ? "bg-orange-500"
+                            : "bg-black"
+                        }`}
+                      >
+                        {item.ticket_status?.name}
+                      </span>
+                    </li>
+                  </ul>
+                </Link>
               ))}
             </div>
           </div>
