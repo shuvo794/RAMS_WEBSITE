@@ -25,6 +25,7 @@ export default function RootLayout({
     // pathname === "/sign-up" ||
     pathname === "/dashboard" ||
     pathname === "/package" ||
+    pathname === "/package-details" ||
     pathname === "/ticket" ||
     pathname === "/invoice" ||
     // pathname.startsWith("/invoice/") ||

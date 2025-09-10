@@ -227,18 +227,31 @@ const TicketItemPage = () => {
   };
 
   const onSubmit = async (data: SignUpFormInputs) => {
+    // Must have either message OR image
     if (!data.message && (!data.image || data.image.length === 0)) {
       Swal.fire("Error", "Please enter a message or attach a file.", "error");
       return;
     }
 
     const formData = new FormData();
-    if (data.message) formData.append("message", data.message);
+
+    // Append text if exists
+    if (data.message) {
+      formData.append("message", data.message);
+    }
+
+    // Append file(s) if exists
+    if (data.image && data.image.length > 0) {
+      for (let i = 0; i < data.image.length; i++) {
+        formData.append("image", data.image[i]); // supports multiple
+      }
+    }
+
     formData.append("email", userEmail ?? "");
     formData.append("password", userPass ?? "");
-    if (pathId !== undefined) formData.append("ticket", String(pathId));
-    if (data.image && data.image.length > 0)
-      formData.append("image", data.image[0]);
+    if (pathId !== undefined) {
+      formData.append("ticket", String(pathId));
+    }
 
     try {
       const response = await fetch(TICKET_POST, {

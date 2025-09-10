@@ -9,7 +9,7 @@ export const BASE_URL = isProduction
 
 export const ADMIN_URL = isProduction
   ? "https://api.ramsint.com"
-  : "http://192.168.68.124:8010";
+  : "http://192.168.68.129:8010";
 // export const ADMIN_URL = isProduction
 //   ? "https://api.ramsint.com"
 //   : "https://api.ramsint.com";

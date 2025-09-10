@@ -2,6 +2,7 @@
 
 import { PACKAGE } from "@/lib/config";
 import moment from "moment";
+import Link from "next/link";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -90,81 +91,60 @@ export default function PackageTabile() {
         </div>
       ) : (
         <div className="bg-white shadow rounded">
-          {/* <div className="flex items-center justify-between bg-gray-700 text-white px-4 py-2">
-            <span className="text-sm">
-              Page {currentPage} of {totalPages}
-            </span>
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search"
-                className="pl-8 pr-3 py-1 rounded text-sm text-black placeholder-gray-400 focus:outline-none"
-              />
-              <svg
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM14 8a6 6 0 11-12 0 6 6 0 0112 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-          </div> */}
+          <Link href="/package-details">
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-sm border-collapse">
+                <thead className="bg-white border-b">
+                  <tr>
+                    <th className="p-4 text-center">Package</th>
+                    <th className="p-4 text-center">Pricing</th>
+                    <th className="p-4 text-center">Next Due Date</th>
+                    <th className="p-4 text-center">Status</th>
+                  </tr>
+                </thead>
 
-          <div className="overflow-x-auto">
-            <table className="min-w-full text-sm border-collapse">
-              <thead className="bg-white border-b">
-                <tr>
-                  <th className="p-4 text-center">Package</th>
-                  <th className="p-4 text-center">Pricing</th>
-                  <th className="p-4 text-center">Next Due Date</th>
-                  <th className="p-4 text-center">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {support.map(
-                  (item, idx) =>
-                    Array.isArray(item?.subscription_items) &&
-                    item.subscription_items.map((subscription_item, sIdx) => (
-                      <tr
-                        key={`${idx}-${sIdx}`}
-                        className="border-b hover:bg-gray-50"
-                      >
-                        <td className="p-4 text-center">
-                          {subscription_item.package?.name}
-                        </td>
-                        <td className="p-4 text-center">
-                          {subscription_item.amount}
-                        </td>
-                        <td className="p-4 text-center">
-                          {subscription_item?.end_date
-                            ? moment(subscription_item?.end_date).format(
-                                "DD-MM-YYYY"
-                              )
-                            : ""}
-                        </td>
-                        <td className="p-4 text-center">
-                          <button
-                            className={`px-3 py-1 rounded ${
-                              subscription_item.is_active
-                                ? "bg-green-600 text-white"
-                                : "bg-red-600 text-white"
-                            }`}
-                          >
-                            {subscription_item.is_active
-                              ? "Activated"
-                              : "Deactivated"}
-                          </button>
-                        </td>
-                      </tr>
-                    ))
-                )}
-              </tbody>
-            </table>
-          </div>
+                <tbody>
+                  {support.map(
+                    (item, idx) =>
+                      Array.isArray(item?.subscription_items) &&
+                      item.subscription_items.map((subscription_item, sIdx) => (
+                        <tr
+                          key={`${idx}-${sIdx}`}
+                          className="border-b hover:bg-gray-50"
+                        >
+                          <td className="p-4 text-center">
+                            {subscription_item.package?.name}
+                          </td>
+                          <td className="p-4 text-center">
+                            {subscription_item.amount}
+                          </td>
+                          <td className="p-4 text-center">
+                            {subscription_item?.end_date
+                              ? moment(subscription_item?.end_date).format(
+                                  "DD-MM-YYYY"
+                                )
+                              : ""}
+                          </td>
+                          <td className="p-4 text-center">
+                            <button
+                              className={`px-3 py-1 rounded ${
+                                subscription_item.is_active
+                                  ? "bg-green-600 text-white"
+                                  : "bg-red-600 text-white"
+                              }`}
+                            >
+                              {subscription_item.is_active
+                                ? "Activated"
+                                : "Deactivated"}
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </Link>
         </div>
       )}
     </main>
