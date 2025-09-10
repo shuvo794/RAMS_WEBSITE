@@ -8,7 +8,10 @@ import NavbarSection from "@/components/NavbarSection";
 import FooterSection from "@/components/FooterSection";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap", // prevents invisible text & shifts
+});
 
 export default function RootLayout({
   children,
@@ -31,7 +34,7 @@ export default function RootLayout({
     pathname === "/ticketCreate" ||
     // pathname === "/VerifyOtp" ||
     // pathname === "/otpSend" ||
-    pathname === "/infoUpdate";
+    pathname === "/info-update";
 
   return (
     <html lang="en" suppressHydrationWarning>

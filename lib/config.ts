@@ -2,7 +2,7 @@ const isProduction = process.env.NODE_ENV === "production";
 
 export const BASE_URL = isProduction
   ? "https://api.ramsint.com"
-  : "http://192.168.68.124:8010";
+  : "http://192.168.68.129:8010";
 // export const BASE_URL = isProduction
 //   ? "https://api.ramsint.com/"
 //   : "https://api.ramsint.com";

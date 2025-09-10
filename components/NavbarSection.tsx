@@ -19,7 +19,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
+} from "@/components/ui/dropdown-menu"; // ✅ use shadcn dropdown instead of radix direct
 import { usePathname } from "next/navigation";
 
 export default function NavbarSection() {
@@ -27,38 +27,25 @@ export default function NavbarSection() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [user, setUser] = useState<string | { name?: string } | null>(null);
   const [, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
   const pathname = usePathname();
   const isWhiteHeader = pathname.startsWith("/pricing/");
-  // const isWhiteInVoice = pathname.startsWith("/invoice/");
-  // const searchParams = useSearchParams();
-  // console.log("gfhfjgfhgfg", searchParams);
-  // const id = searchParams.get("id"); // 👉 get ?id=123
 
-  // const [, setId] = useState<string | null>(null);
-
-  // useEffect(() => {
-  //   const params = new URLSearchParams(window.location.search);
-  //   setId(params.get("id"));
-  // }, []);
   useEffect(() => {
     setMounted(true);
     const storedUserName = localStorage.getItem("userName");
     setUser(storedUserName);
   }, []);
 
-  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 0);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 1024);
     checkIsMobile();
     window.addEventListener("resize", checkIsMobile);
     return () => window.removeEventListener("resize", checkIsMobile);
@@ -91,7 +78,14 @@ export default function NavbarSection() {
     >
       <div className="max-w-[1200px] mx-auto flex justify-between items-center p-4">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/RAMSNew(2).png" alt="Logo" width={150} height={80} />
+          <Image
+            src="/RAMSNew(2).png"
+            alt="Logo"
+            width={150}
+            height={80}
+            priority
+            unoptimized={false}
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -128,13 +122,6 @@ export default function NavbarSection() {
                 </Link>
               ) : (
                 <DropdownMenu>
-                  {/* <DropdownMenuTrigger asChild>
-                    <Link href={`/Checkout/${id}`}>
-                      <button className="flex items-center justify-center w-10 h-10 bg-white text-gray-700 border border-gray-300 rounded-full hover:text-blue-500 focus:outline-none">
-                        <ShoppingCart className="w-6 h-6" />
-                      </button>
-                    </Link>
-                  </DropdownMenuTrigger> */}
                   <DropdownMenuTrigger asChild>
                     <button className="flex items-center justify-center w-10 h-10 bg-white text-gray-700 border border-gray-300 rounded-full hover:text-blue-500 focus:outline-none">
                       <UserCheck className="w-6 h-6" />

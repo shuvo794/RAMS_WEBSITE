@@ -168,7 +168,7 @@ export default function InvoicePage() {
             </h2>
 
             {invoiceget?.status === "unpaid" && (
-              <Link href={`/checkout/${invoiceget?.subscription?.id}`}>
+              <Link href="https://sandbox.sslcommerz.com/EasyCheckOut/testcdedadfba04e99ce792f6c4c9b4ab6bd716">
                 <button
                   style={{
                     backgroundColor: "green",
