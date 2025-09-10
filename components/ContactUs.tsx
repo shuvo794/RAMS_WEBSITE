@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone } from "lucide-react";
 import { CRETE_CONTUCTUS, GET_SITESETTINGS } from "@/lib/config";
+import Swal from "sweetalert2";
 
 type GeneralSettings = {
   address: string;
@@ -50,7 +51,12 @@ export default function ContactUs() {
         message: "",
       });
 
-      alert("Message sent successfully!");
+      Swal.fire({
+        title: "Message sent successfully",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to send message. Please try again.");
