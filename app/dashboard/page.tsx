@@ -488,35 +488,36 @@ const Page = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <Link href="/package">
-              <div className="bg-white p-4 rounded shadow text-center">
-                <p className="text-xl font-bold">
-                  {invoice?.subscription || 0}
+              <div className="bg-white p-4 rounded shadow text-center transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <p className="text-xl font-bold animate-pulse">
+                  {invoice?.subscription ?? 0}
                 </p>
-                <p>Package</p>
+                <p className="text-gray-600">Package</p>
               </div>
             </Link>
 
             <Link href="/ticket">
-              <div className="bg-white p-4 rounded shadow text-center">
-                <p className="text-xl font-bold">{support}</p>
-                <p>Tickets</p>
+              <div className="bg-white p-4 rounded shadow text-center transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <p className="text-xl font-bold animate-pulse">{support}</p>
+                <p className="text-gray-600">Tickets</p>
               </div>
             </Link>
-            <Link href={`/invoice/status/paid`}>
-              <div className="bg-white p-4 rounded shadow text-center">
-                <p className="text-xl font-bold">
-                  {invoice?.paid_invoice || 0}
-                </p>
-                <p>Paid Invoice</p>
-              </div>
-            </Link>
-            <Link href={`/invoice/status/unPaid`}>
-              <div className="bg-white p-4 rounded shadow text-center">
-                <p className="text-xl font-bold">
-                  {invoice?.unpaid_invoice || 0}
-                </p>
 
-                <p>Unpaid Invoice</p>
+            <Link href={`/invoice/status/paid`}>
+              <div className="bg-white p-4 rounded shadow text-center transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <p className="text-xl font-bold animate-pulse">
+                  {invoice?.paid_invoice ?? 0}
+                </p>
+                <p className="text-gray-600">Paid Invoice</p>
+              </div>
+            </Link>
+
+            <Link href={`/invoice/status/unPaid`}>
+              <div className="bg-white p-4 rounded shadow text-center transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <p className="text-xl font-bold animate-pulse">
+                  {invoice?.unpaid_invoice ?? 0}
+                </p>
+                <p className="text-gray-600">Unpaid Invoice</p>
               </div>
             </Link>
           </div>

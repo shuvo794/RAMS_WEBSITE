@@ -152,11 +152,17 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
     cartArray.push(packageItem);
     localStorage.setItem("cartPackages", JSON.stringify(cartArray));
+    const stored = localStorage.getItem("cartPackages");
 
+    // Parse it back to array
+    const cartPackages = stored ? JSON.parse(stored) : [];
+
+    // Get IDs only
+    const ids = cartPackages.map((item: { id: number }) => item.id);
     if (!userName) {
       router.push("/sign-in");
     } else {
-      router.push(`/cart?id=${id}`);
+      router.push(`/cart?id=${ids}`);
     }
   };
 

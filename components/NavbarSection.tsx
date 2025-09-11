@@ -29,17 +29,7 @@ export default function NavbarSection() {
   const [, setMounted] = useState(false);
   const pathname = usePathname();
   const isWhiteHeader = pathname.startsWith("/pricing/");
-  // const isWhiteInVoice = pathname.startsWith("/invoice/");
-  // const searchParams = useSearchParams();
-  // console.log("gfhfjgfhgfg", searchParams);
-  // const id = searchParams.get("id"); // 👉 get ?id=123
 
-  // const [, setId] = useState<string | null>(null);
-
-  // useEffect(() => {
-  //   const params = new URLSearchParams(window.location.search);
-  //   setId(params.get("id"));
-  // }, []);
   useEffect(() => {
     setMounted(true);
     const storedUserName = localStorage.getItem("userName");

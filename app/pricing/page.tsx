@@ -7,7 +7,7 @@ const page = () => {
     <div>
       <PageHeroSection
         title="OUR PRICING"
-        backgroundImage="/half-circle-bg.png" // Make sure this path and file exist
+        backgroundImage="/half-circle-bg.png"
         breadcrumbs={[
           { label: "HOME", href: "/" },
           { label: "pricing", href: "/pricing" },

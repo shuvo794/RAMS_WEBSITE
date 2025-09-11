@@ -63,11 +63,17 @@ export default function LoginPage() {
         timer: 2000,
       }).then(() => {
         // Check if user came from pricing page
-        const savedPricingId = localStorage.getItem("pricingId");
+        const stored = localStorage.getItem("cartPackages");
 
-        if (savedPricingId) {
-          localStorage.removeItem("pricingId");
-          router.push(`/pricing/${savedPricingId}`);
+        // Parse it back to array
+        const cartPackages = stored ? JSON.parse(stored) : [];
+
+        // Get IDs only
+        const ids = cartPackages.map((item: { id: number }) => item.id);
+
+        if (ids) {
+          // localStorage.removeItem("cartPackages");
+          router.push(`/cart?id=${ids}`);
         } else {
           router.push("/");
         }
