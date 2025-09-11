@@ -202,9 +202,9 @@ const PackagePage = () => {
                 {[
                   { label: "Active", count: 1 },
                   { label: "Pending", count: 0 },
-                  { label: "Suspended", count: 0 },
-                  { label: "Terminated", count: 0 },
-                  { label: "Cancelled", count: 3 },
+                  // { label: "Suspended", count: 0 },
+                  { label: "Expired", count: 0 },
+                  // { label: "Cancelled", count: 3 },
                 ].map((item, idx) => (
                   <label
                     key={idx}

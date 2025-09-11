@@ -1,7 +1,6 @@
 "use client";
 
 import PackageDetails from "@/components/PackageDetails";
-import PackageTabile from "@/components/PackageTabile";
 import { BASE_URL, GET_SITESETTINGS } from "@/lib/config";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

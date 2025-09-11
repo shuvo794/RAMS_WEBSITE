@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 type SubscriptionItem = {
   package: {
+    id: number | string;
     name: string;
   };
   amount: string;
@@ -26,6 +27,7 @@ type PackageDetail = {
 
 export default function PackageDetails() {
   const [packages, setPackages] = useState<PackageDetail[]>([]);
+
   const [currentPage] = useState<number>(1);
   const [size] = useState<number>(10);
   const topRef = useRef<HTMLDivElement>(null);
@@ -76,7 +78,7 @@ export default function PackageDetails() {
               {pkg?.subscription_items?.map((sub, idx) => (
                 <div key={idx} className="grid grid-cols-2 gap-4 text-sm mb-2">
                   <div>
-                    <strong>Package Name:</strong> {sub.package.name}
+                    <strong>Package Name:</strong> {sub.package.id}
                   </div>
                   <div>
                     <strong>Amount:</strong> {sub.amount}
