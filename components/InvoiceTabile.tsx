@@ -19,24 +19,25 @@ type Support = {
     name: string;
   };
   ticket_number: string;
-  invoice_date: string; // Added property
-  end_date: string; // Added property
-  invoice_number: string; // Added property
-  total_amount: number; // Added property
-  status: string; // Added property
+  invoice_date: string;
+  end_date: string;
+  invoice_number: string;
+  total_amount: number;
+  status: string;
   id: number;
 };
 
 export default function InvoiceTabile() {
   const [support, setSupport] = useState<Support[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
-  const [size, setSize] = useState<number>(10); // page size = 1
+  const [size, setSize] = useState<number>(10);
   const topRef = useRef<HTMLDivElement>(null);
   const [userId, setUserId] = useState<string | null>(null);
   const [userToken, setUserToken] = useState<string | null>(null);
   const pathname = usePathname();
-  const lastSegment = pathname.split("/").pop(); // 'paid'
+  const lastSegment = pathname.split("/").pop();
 
   useEffect(() => {
     const userToken = localStorage.getItem("token");
@@ -50,6 +51,7 @@ export default function InvoiceTabile() {
     if (!userId || !userToken) return;
 
     async function fetchData() {
+      setLoading(true);
       try {
         const res = await fetch(`${STATUS_INVOICE}?status=${lastSegment}`, {
           method: "GET",
@@ -67,6 +69,8 @@ export default function InvoiceTabile() {
         setSize(jsonDpt.size);
       } catch (error) {
         console.error("API fetch error:", error);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -92,7 +96,41 @@ export default function InvoiceTabile() {
       <div ref={topRef} />
       <h1 className="text-2xl font-bold text-blue-900 mb-4">My Invoice</h1>
 
-      {support.length === 0 ? (
+      {loading ? (
+        <div className="bg-white shadow rounded p-6 animate-pulse">
+          <div className="h-6 bg-gray-200 rounded w-1/3 mb-4"></div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-sm">
+              <thead className="bg-gray-100">
+                <tr>
+                  {[
+                    "Invoice",
+                    "Invoice Date",
+                    "Due Date",
+                    "Total",
+                    "Status",
+                  ].map((col, i) => (
+                    <th key={i} className="p-4 text-center">
+                      <div className="h-4 bg-gray-200 rounded w-24 mx-auto"></div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {Array.from({ length: support?.length }).map((_, i) => (
+                  <tr key={i} className="border-b">
+                    {Array.from({ length: support.length }).map((_, j) => (
+                      <td key={j} className="p-4 text-center">
+                        <div className="h-4 bg-gray-200 rounded w-28 mx-auto"></div>
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ) : support.length === 0 ? (
         <div className="bg-white shadow rounded p-6 text-center text-gray-500">
           There are no Invoice
         </div>
@@ -143,15 +181,13 @@ export default function InvoiceTabile() {
                         : "--"}
                     </td>
                     <td className="p-4 text-center">
-                      {item?.invoice_date
+                      {item?.end_date
                         ? moment(item.end_date).format("DD-MM-YYYY")
                         : "--"}
                     </td>
                     <td className="p-4 text-center">{item?.total_amount}</td>
-                    {/* <td className="p-4">{item.ticket_priority?.name}</td> */}
                     <td className="p-4 text-center">
                       <Link href={`/invoice/${item.id}`}>
-                        {" "}
                         <button className="bg-gray-800 text-white px-4 py-2 rounded">
                           {item?.status}
                         </button>
@@ -161,8 +197,9 @@ export default function InvoiceTabile() {
                 ))}
               </tbody>
             </table>
+
             {/* Pagination */}
-            <div className="flex justify-end mt-4 mb-4 m-3  space-x-2 flex-wrap">
+            <div className="flex justify-end mt-4 mb-4 m-3 space-x-2 flex-wrap">
               <button
                 onClick={handlePreviousPage}
                 disabled={currentPage === 1}

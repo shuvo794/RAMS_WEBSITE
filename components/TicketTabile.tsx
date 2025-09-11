@@ -22,9 +22,10 @@ type Support = {
 
 export default function TicketTabile() {
   const [support, setSupport] = useState<Support[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
-  const [size, setSize] = useState<number>(10); // page size = 1
+  const [size, setSize] = useState<number>(10);
   const topRef = useRef<HTMLDivElement>(null);
   const IDS = typeof window !== "undefined" ? localStorage.getItem("id") : null;
 
@@ -32,6 +33,7 @@ export default function TicketTabile() {
     if (!IDS) return;
 
     async function fetchData() {
+      setLoading(true);
       try {
         const res = await fetch(
           `${TICKET_CHECK_IDS}${IDS}?page=${currentPage}&size=${size}`
@@ -45,6 +47,8 @@ export default function TicketTabile() {
         setSize(jsonDpt.size);
       } catch (error) {
         console.error("API fetch error:", error);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -72,9 +76,45 @@ export default function TicketTabile() {
         My Support Ticket
       </h1>
 
-      {support.length === 0 ? (
+      {loading ? (
+        <div className="bg-white shadow rounded p-6">
+          <div className="animate-pulse">
+            <div className="h-6 bg-gray-200 rounded w-1/3 mb-4"></div>
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-sm">
+                <thead className="bg-gray-100">
+                  <tr>
+                    {[
+                      "Ticket Number",
+                      "Department",
+                      "Subject",
+                      "Priority",
+                      "Status",
+                    ].map((col, i) => (
+                      <th key={i} className="p-4 text-left">
+                        <div className="h-4 bg-gray-200 rounded w-24"></div>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {Array.from({ length: support?.length }).map((_, i) => (
+                    <tr key={i} className="border-b">
+                      {Array.from({ length: support?.length }).map((_, j) => (
+                        <td key={j} className="p-4">
+                          <div className="h-4 bg-gray-200 rounded w-32"></div>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      ) : support.length === 0 ? (
         <div className="bg-white shadow rounded p-6 text-center text-gray-500">
-          There are no ticket
+          There are no tickets
         </div>
       ) : (
         <div className="bg-white shadow rounded">
