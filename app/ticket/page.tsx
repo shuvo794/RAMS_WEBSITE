@@ -202,37 +202,20 @@ const TicketPage = () => {
             <div className="bg-white p-4 rounded shadow">
               <div className="flex items-center justify-between mb-2 font-semibold text-gray-700">
                 <div className="flex items-center gap-2">
-                  <FontAwesomeIcon icon={faGlobe} />
+                  <FontAwesomeIcon icon={faGlobe} className="w-5 h-5" />
                   Support
                 </div>
               </div>
               <div className="space-y-2">
-                <Link href="/ticket">
-                  <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
-                    My Support Ticket
-                    <FontAwesomeIcon icon={faTicket} />
-                  </button>
-                </Link>
-                {/* <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
-                  Announcement
-                  <FontAwesomeIcon icon={faScroll} />
-                </button> */}
-                {/* <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
-                  Knowledge
-                  <FontAwesomeIcon icon={faBookAtlas} />
-                </button> */}
-                {/* <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
-                  Download
-                  <FontAwesomeIcon icon={faDownload} />
-                </button> */}
-                {/* <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
-                  Network Status
-                  <FontAwesomeIcon icon={faNetworkWired} />
-                </button> */}
+                <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
+                  My Invoice
+                  <FontAwesomeIcon icon={faTicket} className="w-5 h-5" />
+                </button>
+
                 <Link href="/open-ticket">
                   <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
                     Open Ticket
-                    <FontAwesomeIcon icon={faComment} />
+                    <FontAwesomeIcon icon={faComment} className="w-5 h-5" />
                   </button>
                 </Link>
               </div>

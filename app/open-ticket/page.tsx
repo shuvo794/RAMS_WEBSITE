@@ -250,82 +250,64 @@ const OpenTicketPage = () => {
           <div className=" rounded shadow-md space-y-6 text-sm">
             {/* View Section */}
             <div className="bg-white p-4 rounded shadow">
-              <div className="flex items-center justify-between mb-2 font-semibold text-gray-700">
-                <div className="flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 mr-2" />
-                  <span>Your Recent Tickets</span>
-                </div>
-              </div>
-              <div className="space-y-2">
-                {ticket.map((item) => (
-                  <Link key={item.id} href={`/ticket/${item.id}`}>
+              {ticket.length === 0
+                ? // Skeleton loader
+                  Array.from({ length: 3 }).map((_, idx) => (
                     <div
-                      key={item.id}
-                      className="px-4 py-3 hover:bg-gray-50 cursor-pointer"
+                      key={idx}
+                      className="px-4 py-3 animate-pulse bg-gray-200 rounded"
                     >
-                      # {item.ticket_number}
-                      <div className="flex justify-between items-start mb-1">
-                        {/* optional ticket ID and date */}
-                      </div>
-                      <h3 className="text-gray-800 text-sm mb-1 font-normal">
-                        {truncateWords(item?.subject || "", 50)}
-                      </h3>
-                      <div className="flex items-center justify-between">
-                        <span
-                          className={`text-xs font-medium ${
-                            item.ticket_status?.name?.toLowerCase() ===
-                            "customer reply"
-                              ? "text-orange-500"
-                              : item.ticket_status?.name?.toLowerCase() ===
-                                "answered"
-                              ? "text-green-600"
-                              : "text-gray-500"
-                          }`}
-                        >
-                          {item.ticket_status?.name || "Unknown"}
-                        </span>
-                      </div>
+                      <div className="h-4 w-3/4 mb-2 bg-gray-300 rounded"></div>
+                      <div className="h-3 w-full bg-gray-300 rounded"></div>
                     </div>
-                  </Link>
-                ))}
-              </div>
+                  ))
+                : ticket.map((item) => (
+                    <Link key={item.id} href={`/ticket/${item.id}`}>
+                      <div className="px-4 py-3 hover:bg-gray-50 cursor-pointer">
+                        # {item.ticket_number}
+                        <div className="flex justify-between items-start mb-1">
+                          {/* optional ticket ID and date */}
+                        </div>
+                        <h3 className="text-gray-800 text-sm mb-1 font-normal">
+                          {truncateWords(item?.subject || "", 50)}
+                        </h3>
+                        <div className="flex items-center justify-between">
+                          <span
+                            className={`text-xs font-medium ${
+                              item.ticket_status?.name?.toLowerCase() ===
+                              "customer reply"
+                                ? "text-orange-500"
+                                : item.ticket_status?.name?.toLowerCase() ===
+                                  "answered"
+                                ? "text-green-600"
+                                : "text-gray-500"
+                            }`}
+                          >
+                            {item.ticket_status?.name || "Unknown"}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
             </div>
 
-            {/* Actions Section */}
             <div className="bg-white p-4 rounded shadow">
               <div className="flex items-center justify-between mb-2 font-semibold text-gray-700">
                 <div className="flex items-center gap-2">
-                  <FontAwesomeIcon icon={faGlobe} />
+                  <FontAwesomeIcon icon={faGlobe} className="w-5 h-5" />
                   Support
                 </div>
               </div>
               <div className="space-y-2">
-                <Link href="/ticket">
-                  <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
-                    My Support Ticket
-                    <FontAwesomeIcon icon={faTicket} />
-                  </button>
-                </Link>
-                {/* <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
-                  Announcement
-                  <FontAwesomeIcon icon={faScroll} />
-                </button> */}
-                {/* <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
-                  Knowledge
-                  <FontAwesomeIcon icon={faBookAtlas} />
-                </button> */}
-                {/* <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
-                  Download
-                  <FontAwesomeIcon icon={faDownload} />
-                </button> */}
-                {/* <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
-                  Network Status
-                  <FontAwesomeIcon icon={faNetworkWired} />
-                </button> */}
+                <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
+                  My Invoice
+                  <FontAwesomeIcon icon={faTicket} className="w-5 h-5" />
+                </button>
+
                 <Link href="/open-ticket">
                   <button className="flex justify-between items-center w-full text-gray-600 px-4 py-2 transition-all duration-200 hover:bg-gray-500 hover:text-white rounded-[10px]">
                     Open Ticket
-                    <FontAwesomeIcon icon={faComment} />
+                    <FontAwesomeIcon icon={faComment} className="w-5 h-5" />
                   </button>
                 </Link>
               </div>

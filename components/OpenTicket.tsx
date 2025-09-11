@@ -7,26 +7,6 @@ type GeneralSettings = {
 };
 export default function OpenTicket({}) {
   const [departments, setDepartments] = useState<GeneralSettings | null>(null);
-  // const departments = [
-  //   {
-  //     icon: Mail,
-  //     title: "Billing",
-  //     description: "Billing Support, Change IP",
-  //     color: "text-blue-600",
-  //   },
-  //   {
-  //     icon: Headphones,
-  //     title: "Support",
-  //     description: "Technical Support",
-  //     color: "text-blue-600",
-  //   },
-  //   {
-  //     icon: MessageSquare,
-  //     title: "Contact",
-  //     description: "Website Contact Form",
-  //     color: "text-blue-600",
-  //   },
-  // ];
 
   useEffect(() => {
     async function fetchData() {
@@ -52,23 +32,6 @@ export default function OpenTicket({}) {
             <h1 className="text-3xl font-light text-blue-600 mb-4">
               Open Ticket
             </h1>
-
-            {/* Breadcrumb */}
-            {/* <nav className="flex items-center text-sm text-gray-500 space-x-2 mb-6">
-              <a href="#" className="hover:text-blue-600">
-                Portal Home
-              </a>
-              <ChevronRight className="w-3 h-3" />
-              <a href="#" className="hover:text-blue-600">
-                Client Area
-              </a>
-              <ChevronRight className="w-3 h-3" />
-              <a href="#" className="hover:text-blue-600">
-                Support Tickets
-              </a>
-              <ChevronRight className="w-3 h-3" />
-              <span className="text-gray-700">Submit Ticket</span>
-            </nav> */}
           </div>
 
           {/* Main Content */}
