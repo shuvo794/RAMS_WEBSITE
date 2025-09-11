@@ -61,7 +61,6 @@ export default function OurPricing() {
             key={plan.id}
             name={plan.name}
             period={plan.period}
-            features={plan.features}
             price={plan.price ?? 0}
             description={plan.description ?? ""}
             hoveredTitle={hoveredTitle}

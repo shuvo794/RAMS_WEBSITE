@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { CheckCircle, XCircle } from "lucide-react";
 import { motion } from "framer-motion";
@@ -9,7 +11,6 @@ interface PricingCardProps {
   price: string | number;
   period: string;
   description: string;
-  features: string[];
   disabledIndexes?: number[];
   btnColor?: string;
   gradient?: string;
@@ -30,6 +31,40 @@ interface Feature {
   };
 }
 
+/* ---------------- Skeleton Card ---------------- */
+const PricingCardSkeleton = () => {
+  return (
+    <div className="relative w-full max-w-sm rounded-2xl overflow-hidden shadow-xl bg-white animate-pulse">
+      {/* Header Skeleton */}
+      <div className="bg-gray-200 h-40 flex flex-col items-center justify-center gap-3">
+        <div className="h-6 w-20 bg-gray-300 rounded"></div>
+        <div className="h-4 w-16 bg-gray-300 rounded"></div>
+        <div className="h-6 w-24 bg-gray-300 rounded"></div>
+      </div>
+
+      {/* Body Skeleton */}
+      <div className="p-6 flex flex-col justify-between min-h-[380px]">
+        {/* Description */}
+        <div className="h-4 w-3/4 bg-gray-300 rounded mb-6"></div>
+
+        {/* Features */}
+        <ul className="mb-6 space-y-3">
+          {Array.from({ length: 8 }).map((_, idx) => (
+            <li key={idx} className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-gray-300 rounded-full"></div>
+              <div className="h-3 w-32 bg-gray-300 rounded"></div>
+            </li>
+          ))}
+        </ul>
+
+        {/* Button */}
+        <div className="h-10 w-full bg-gray-300 rounded-lg"></div>
+      </div>
+    </div>
+  );
+};
+
+/* ---------------- Main Pricing Card ---------------- */
 const PricingCard: React.FC<PricingCardProps> = ({
   name,
   price,
@@ -42,18 +77,17 @@ const PricingCard: React.FC<PricingCardProps> = ({
   setHoveredTitle,
   id,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(true);
+  const [fetureSinge, setFetureSinge] = useState<Feature[]>([]);
+  const [loading, setLoading] = useState(true);
+
   const isPremium = name.toLowerCase() === "premium";
   const isBasic = name.toLowerCase() === "gold";
   const isStandard = name.toLowerCase() === "standard";
   const isHoveredByAnother = hoveredTitle && hoveredTitle !== name;
   const defaultGradient =
     name.toLowerCase() === "premium" ? gradient : "from-gray-100 to-gray-400";
-
-  // console.log("sdskjdhsdhaskdhaskhd", id);
-
-  const [isHovered, setIsHovered] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(true);
-  const [fetureSinge, setFetureSinge] = useState<Feature[]>([]);
 
   const appliedGradient =
     isHovered || hoveredTitle === name
@@ -62,18 +96,15 @@ const PricingCard: React.FC<PricingCardProps> = ({
       ? "from-gray-100 to-gray-200"
       : defaultGradient;
 
-  // Watch screen size for desktop
+  // responsive check
   useEffect(() => {
-    const checkScreenSize = () => {
-      setIsDesktop(window.innerWidth >= 1024);
-    };
-
+    const checkScreenSize = () => setIsDesktop(window.innerWidth >= 1024);
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
-  // Scale logic (desktop only)
+  // scale logic
   let scale = 1;
   if (isDesktop) {
     if (hoveredTitle?.toLowerCase() === "gold") {
@@ -88,20 +119,22 @@ const PricingCard: React.FC<PricingCardProps> = ({
     }
   }
 
+  // fetch data
   useEffect(() => {
     if (!id) return;
-
     const fetchBlog = async () => {
       try {
+        setLoading(true);
         const response = await fetch(`${fetureSingelGet}${id}`);
         if (!response.ok) throw new Error("Failed to fetch features");
         const data = await response.json();
-        setFetureSinge(data.map((item: Feature) => item));
-      } catch {
-        // Handle error
+        setFetureSinge(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
       }
     };
-
     fetchBlog();
   }, [id]);
 
@@ -109,42 +142,30 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
   const handlePurchaseClick = () => {
     const userName = localStorage.getItem("userName");
+    if (!id) return;
 
-    if (id === undefined || id === null) {
-      console.error("Plan ID is undefined or null, cannot add to cart.");
-      return;
-    }
+    const packageItem = { id, name };
+    const existingCart = localStorage.getItem("cartPackages");
+    const cartArray: { id: string | number; name: string }[] = existingCart
+      ? JSON.parse(existingCart)
+      : [];
 
-    const packageItem = {
-      id: id, // plan id
-      name: name, // plan name
-    };
-
-    // Get existing cart from localStorage
-    const existingCart = localStorage.getItem("cart");
-    let cartArray: { id: string | number; name: string }[] = [];
-
-    if (existingCart) {
-      cartArray = JSON.parse(existingCart);
-    }
-
-    // Add new package to array
     cartArray.push(packageItem);
-
-    // Save back to localStorage
     localStorage.setItem("cartPackages", JSON.stringify(cartArray));
 
     if (!userName) {
       router.push("/sign-in");
-    }
-    if (!userName) {
-      router.push("/sign-in");
     } else {
-      // Construct URL with query param
       router.push(`/cart?id=${id}`);
     }
   };
 
+  /* ----- Skeleton Loading ----- */
+  if (loading) {
+    return <PricingCardSkeleton />;
+  }
+
+  /* ----- Real Card ----- */
   return (
     <motion.div
       onMouseEnter={() => {
@@ -163,7 +184,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
     >
       {/* Header */}
       <div
-        className={`relative bg-gradient-to-b ${appliedGradient} p-16 text-white text-center transition-colors duration-300`}
+        className={`relative bg-gradient-to-b ${appliedGradient} p-16 text-white text-center`}
       >
         <h2 className="text-3xl font-light">
           <span> ৳ </span>
@@ -176,27 +197,25 @@ const PricingCard: React.FC<PricingCardProps> = ({
       {/* Body */}
       <div className="bg-white p-6 text-center flex flex-col justify-between min-h-[380px]">
         <p className="text-sm text-gray-600 mb-6">{description}</p>
+
         <ul className="mb-6 text-left space-y-3">
-          {fetureSinge.map((feature: Feature, index: number) => {
-            const is_checked = feature.is_checked;
-            return (
-              <li
-                key={index}
-                className={`flex items-center gap-1 ${
-                  !is_checked
-                    ? "text-gray-400 line-clamp-none"
-                    : "text-gray-700 font-medium"
-                }`}
-              >
-                {!is_checked ? (
-                  <XCircle size={16} className="text-red-500" />
-                ) : (
-                  <CheckCircle size={16} className="text-blue-600" />
-                )}
-                {feature.feature.label}
-              </li>
-            );
-          })}
+          {fetureSinge.map((feature) => (
+            <li
+              key={feature.id}
+              className={`flex items-center gap-1 ${
+                !feature.is_checked
+                  ? "text-gray-400"
+                  : "text-gray-700 font-medium"
+              }`}
+            >
+              {feature.is_checked ? (
+                <CheckCircle size={16} className="text-blue-600" />
+              ) : (
+                <XCircle size={16} className="text-red-500" />
+              )}
+              {feature.feature.label}
+            </li>
+          ))}
         </ul>
 
         <button
