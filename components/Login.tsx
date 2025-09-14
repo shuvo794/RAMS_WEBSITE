@@ -72,13 +72,12 @@ export default function LoginPage() {
         const ids = cartPackages.map((item: { id: number }) => item.id);
 
         if (ids) {
-          // localStorage.removeItem("cartPackages");
           router.push(`/cart?id=${ids}`);
+          localStorage.removeItem("cartPackages");
         } else {
           router.push("/");
         }
 
-        // 🔄 Force reload to reflect localStorage state (for Navbar, etc.)
         setTimeout(() => {
           window.location.reload();
         }, 500); // Small delay to allow router.push to complete
