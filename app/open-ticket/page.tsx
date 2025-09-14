@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, MessageSquare, UserCheck } from "lucide-react";
+import { Menu, UserCheck } from "lucide-react";
 
 import { BASE_URL, GET_SITESETTINGS, TICKET_CHECK_IDS } from "@/lib/config";
 import {

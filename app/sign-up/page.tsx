@@ -14,7 +14,7 @@ const page = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex flex-col md:flex-row w-full max-w-6xl rounded-2xl shadow-2xl overflow-hidden bg-white">
+      <div className="flex flex-col mt-16 md:mt-0 md:flex-row w-full max-w-6xl rounded-2xl shadow-2xl overflow-hidden bg-white">
         {/* Left Section: Hidden on mobile */}
         <Card
           className="hidden md:flex flex-col flex-1 items-center justify-center border-0 rounded-none p-12"

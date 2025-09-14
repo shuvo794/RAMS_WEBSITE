@@ -1,18 +1,18 @@
 const isProduction = process.env.NODE_ENV === "production";
 
-export const BASE_URL = isProduction
-  ? "https://api.ramsint.com"
-  : "http://192.168.68.129:8010";
 // export const BASE_URL = isProduction
-//   ? "https://api.ramsint.com/"
-//   : "https://api.ramsint.com";
+//   ? "https://api.ramsint.com"
+//   : "http://192.168.68.129:8010";
+export const BASE_URL = isProduction
+  ? "https://api.ramsint.com/"
+  : "https://api.ramsint.com";
 
-export const ADMIN_URL = isProduction
-  ? "https://api.ramsint.com"
-  : "http://192.168.68.129:8010";
 // export const ADMIN_URL = isProduction
 //   ? "https://api.ramsint.com"
-//   : "https://api.ramsint.com";
+//   : "http://192.168.68.129:8010";
+export const ADMIN_URL = isProduction
+  ? "https://api.ramsint.com"
+  : "https://api.ramsint.com";
 
 export const GET_BANNER = `${BASE_URL}/banner/api/v1/banner/all/`;
 

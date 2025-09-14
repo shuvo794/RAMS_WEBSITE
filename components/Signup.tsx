@@ -169,18 +169,26 @@ export default function CreatPage() {
     <div>
       <h2
         style={{
-          fontSize: "2.5rem",
+          fontSize: "1.5rem",
           fontWeight: "800",
           color: "#2563ea",
           textAlign: "center",
-          marginBottom: "1.5rem",
+          // marginBottom: "1.5rem",
         }}
       >
         SIGN UP
       </h2>
 
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          style={{
+            width: "100%",
+            maxWidth: "400px",
+            marginTop: "1rem",
+            marginBottom: "1rem",
+          }}
+        >
           {/* logo Upload */}
           <label style={{ marginBottom: "0.5rem", display: "block" }}>
             Upload logo
@@ -188,18 +196,18 @@ export default function CreatPage() {
           <input type="file" {...register("logo")} style={inputStyle} />
 
           {/* First Name & Last Name */}
-          <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+          <div className="flex flex-col md:flex-row gap-4 mb-4">
             <input
               type="text"
               placeholder="Enter First Name"
               {...register("first_name", { required: true })}
-              style={{ ...inputStyle, flex: 1 }}
+              className="flex-1 border rounded px-3 py-2"
             />
             <input
               type="text"
               placeholder="Enter Last Name"
               {...register("last_name", { required: true })}
-              style={{ ...inputStyle, flex: 1 }}
+              className="flex-1 border rounded px-3 py-2"
             />
           </div>
 
