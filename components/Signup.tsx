@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { CHECK_EMAIL, CHECK_PRIMARY_PHONE, SIGNUP } from "@/lib/config";
 import Swal from "sweetalert2";
 import CountryCodeSelect from "./CountryCodeSelect";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
@@ -165,6 +165,19 @@ export default function CreatPage() {
     }
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkSize = () => {
+      setIsMobile(window.innerWidth < 768); // <768px hole mobile
+    };
+
+    checkSize(); // initial check
+    window.addEventListener("resize", checkSize);
+
+    return () => window.removeEventListener("resize", checkSize);
+  }, []);
+
   return (
     <div>
       <h2
@@ -195,19 +208,25 @@ export default function CreatPage() {
           </label>
           <input type="file" {...register("logo")} style={inputStyle} />
 
-          {/* First Name & Last Name */}
-          <div className="flex flex-col md:flex-row gap-4 mb-4">
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+              marginBottom: "1rem",
+              flexDirection: isMobile ? "column" : "row", // mobile -> column, desktop -> row
+            }}
+          >
             <input
               type="text"
               placeholder="Enter First Name"
               {...register("first_name", { required: true })}
-              className="flex-1 border rounded px-3 py-2"
+              style={{ ...inputStyle, flex: 1 }}
             />
             <input
               type="text"
               placeholder="Enter Last Name"
               {...register("last_name", { required: true })}
-              className="flex-1 border rounded px-3 py-2"
+              style={{ ...inputStyle, flex: 1 }}
             />
           </div>
 
