@@ -1,7 +1,7 @@
 "use client";
 
 import TicketTabile from "@/components/TicketTabile";
-import { BASE_URL, GET_SITESETTINGS } from "@/lib/config";
+import { GET_SITESETTINGS } from "@/lib/config";
 import {
   faComment,
   faFilter,
@@ -9,17 +9,11 @@ import {
   faTicket,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Menu, UserCheck } from "lucide-react";
-import Image from "next/image";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
+
 import DashBoardNav from "@/components/DashBoardNav";
 
 type GeneralSettings = {
@@ -34,9 +28,7 @@ type GeneralSettings = {
 
 const TicketPage = () => {
   const [, setUserName] = useState<string | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [data, setData] = useState<GeneralSettings | null>(null);
-  const [, setUser] = useState<string | { name?: string } | null>(null);
+  const [, setData] = useState<GeneralSettings | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -60,22 +52,6 @@ const TicketPage = () => {
       setUserName(storedUserName);
     }
   }, [router]);
-
-  const handleSignOut = () => {
-    localStorage.removeItem("userName");
-    localStorage.removeItem("token");
-    router.push("/sign-in");
-    setUser(null);
-  };
-
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/dashboard", label: "Dashboard" },
-    { href: "/package", label: "Pakage" },
-    { href: "/invoice", label: "Invoice" },
-    { href: "/ticket", label: "Ticket" },
-    { href: "/open-ticket", label: "Open Ticket" },
-  ];
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">

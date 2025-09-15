@@ -1,8 +1,6 @@
 "use client";
 
-import { Menu, UserCheck } from "lucide-react";
-
-import { BASE_URL, GET_SITESETTINGS, TICKET_CHECK_IDS } from "@/lib/config";
+import { GET_SITESETTINGS, TICKET_CHECK_IDS } from "@/lib/config";
 import {
   faComment,
   faGlobe,
@@ -12,13 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
+
 import OpenTicket from "@/components/OpenTicket";
 import DashBoardNav from "@/components/DashBoardNav";
 type GeneralSettings = {
@@ -83,10 +75,8 @@ type TicketMe = {
 
 const OpenTicketPage = () => {
   const [, setUserName] = useState<string | null>(null);
-  const [, setMenuOpen] = useState(false);
   const router = useRouter();
-  const [data, setData] = useState<GeneralSettings | null>(null);
-  const [, setUser] = useState<string | { name?: string } | null>(null);
+  const [, setData] = useState<GeneralSettings | null>(null);
   const [ticket, setTicket] = useState<TicketMe[]>([]); // ✅ array type
   const [userId, setUserId] = useState<string | null>(null);
 
@@ -147,24 +137,6 @@ const OpenTicketPage = () => {
     if (words.length <= wordLimit) return text;
     return words.slice(0, wordLimit).join(" ") + "...";
   };
-
-  const handleSignOut = () => {
-    localStorage.removeItem("userName");
-    localStorage.removeItem("token");
-    router.push("/sign-in");
-    setUser(null);
-  };
-
-  const navLinks = [
-    { href: "/", label: "Home" },
-
-    { href: "/dashboard", label: "Dashboard" },
-
-    { href: "/package", label: "Pakage" },
-    { href: "/invoice", label: "Invoice" },
-    { href: "/ticket", label: "Ticket" },
-    { href: "/open-ticket", label: "Open Ticket" },
-  ];
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans  overflow-hidden">

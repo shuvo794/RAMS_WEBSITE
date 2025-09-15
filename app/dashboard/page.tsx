@@ -9,13 +9,7 @@ import {
   TICKET_CHECK_IDS,
   USER_ME,
 } from "@/lib/config";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
-import { Menu, UserCheck } from "lucide-react";
+
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
@@ -95,7 +89,6 @@ const Page = () => {
   const [userToken, setToken] = useState<string | null>(null);
   const [loadingUser, setLoadingUser] = useState(true);
   const [loadingSettings, setLoadingSettings] = useState(true);
-  const [, setUser] = useState<string | { name?: string } | null>(null);
   const router = useRouter();
 
   const [currentPage] = useState<number>(1);
@@ -218,26 +211,6 @@ const Page = () => {
 
     fetchData();
   }, [userToken]);
-
-  const handleSignOut = () => {
-    localStorage.removeItem("userName");
-    localStorage.removeItem("token");
-    router.push("/sign-in");
-    setUser(null);
-  };
-
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const navLinks = [
-    { href: "/", label: "Home" },
-
-    { href: "/dashboard", label: "Dashboard" },
-
-    { href: "/package", label: "Pakage" },
-    { href: "/invoice", label: "Invoice" },
-    { href: "/ticket", label: "Ticket" },
-    { href: "/open-ticket", label: "Open Ticket" },
-  ];
 
   useEffect(() => {
     if (!userId) return;
