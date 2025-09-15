@@ -199,7 +199,7 @@ export default function TestimonialSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 min-h-[400px]">
             {getCurrentPageItems().map((testimonial: Testimonial) => (
               <div
-                key={`${currentPage}-${testimonial.id}`} // ✅ include page in key
+                key={`${currentPage}-${testimonial.id}`}
                 className="bg-white pt-16 pb-6 px-6 sm:px-8 rounded-lg shadow-xl text-center relative mx-auto w-full max-w-xs sm:max-w-sm text-gray-900 min-h-[350px] flex flex-col
           transform transition-transform duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-2xl"
               >

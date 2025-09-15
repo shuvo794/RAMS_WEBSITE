@@ -121,7 +121,10 @@ export default function NavbarSection() {
               ) : (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <button className="flex items-center justify-center w-10 h-10 bg-white text-gray-700 border border-gray-300 rounded-full hover:text-blue-500 focus:outline-none">
+                    <button
+                      className="flex items-center justify-center w-10 h-10 bg-white text-gray-700 border border-gray-300 rounded-full hover:text-blue-500 focus:outline-none"
+                      aria-label="Select user"
+                    >
                       <UserCheck className="w-6 h-6" />
                     </button>
                   </DropdownMenuTrigger>
