@@ -167,6 +167,7 @@ export default function NavbarSection() {
                   { href: "/pricing", label: "Pricing" },
                   { href: "/clients", label: "Clients" },
                   { href: "/contact-us", label: "Contact Us" },
+                  { href: "/dashboard", label: "Account" },
                 ].map(({ href, label }) => (
                   <Link
                     key={label}

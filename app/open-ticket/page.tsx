@@ -20,6 +20,7 @@ import {
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 import OpenTicket from "@/components/OpenTicket";
+import DashBoardNav from "@/components/DashBoardNav";
 type GeneralSettings = {
   address: string;
   email: string;
@@ -167,82 +168,7 @@ const OpenTicketPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans  overflow-hidden">
-      <nav
-        className="relative text-white px-4 py-2 flex items-center justify-between flex-wrap"
-        style={{
-          background:
-            "linear-gradient(45deg, #488fed 0%, #291fbc 51%, #0f0786 100%)",
-        }}
-      >
-        {/* Left: Logo */}
-        <div className="w-full flex justify-center md:justify-start md:w-auto mb-2 md:mb-0">
-          <Link href="/">
-            <Image
-              src={`${BASE_URL}${data?.rams_logo ?? ""}`}
-              alt="CWP Logo"
-              className="h-12 w-auto"
-              width={48}
-              height={48}
-            />
-          </Link>
-        </div>
-
-        {/* Center: Nav Links (Desktop only) */}
-        <div className="hidden md:flex gap-6 items-center">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={label}
-              href={href}
-              className="px-3 py-2 font-semibold uppercase text-sm"
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
-
-        {/* Right: Username + Mobile Menu Icon */}
-        <div className="flex items-center gap-3 px-8">
-          {/* Desktop dropdown */}
-          <span className="hidden md:inline font-semibold text-sm md:text-base">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="flex items-center justify-center w-10 h-10 bg-white text-gray-700 border border-gray-300 rounded-full hover:text-blue-500 focus:outline-none">
-                  <UserCheck className="w-5 h-5" />
-                </button>
-              </DropdownMenuTrigger>
-
-              <DropdownMenuContent className="shadow-lg rounded-md bg-white">
-                <DropdownMenuItem asChild>
-                  <Link href="/dashboard" className="w-full">
-                    <span className="block w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-100">
-                      Account
-                    </span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <button
-                    onClick={handleSignOut}
-                    className="w-full text-left px-4 py-2 text-sm text-black hover:bg-gray-100"
-                  >
-                    Sign Out
-                  </button>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </span>
-
-          {/* Mobile menu toggle */}
-          <div className="flex justify-center w-1/2 md:hidden">
-            <button
-              onClick={() => setMenuOpen((prev) => !prev)}
-              className="ml-2"
-              aria-label="Toggle menu"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      </nav>
+      <DashBoardNav />
 
       <main className="pt-[20px] p-2 grid grid-cols-1 md:grid-cols-4 gap-2">
         {/* Sidebar */}
