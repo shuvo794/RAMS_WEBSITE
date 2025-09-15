@@ -70,8 +70,9 @@ export default function LoginPage() {
 
         // Get IDs only
         const ids = cartPackages.map((item: { id: number }) => item.id);
+        console.log("Cart Package IDs:", ids.length);
 
-        if (ids) {
+        if (ids.length) {
           router.push(`/cart?id=${ids}`);
           localStorage.removeItem("cartPackages");
         } else {
