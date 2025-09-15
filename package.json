@@ -27,7 +27,7 @@
     "dompurify": "^3.2.3",
     "embla-carousel-autoplay": "^8.5.1",
     "embla-carousel-react": "^8.5.1",
-    "framer-motion": "^11.15.0",
+    "framer-motion": "^11.18.2",
     "html2pdf": "^0.0.11",
     "html2pdf.js": "^0.10.3",
     "lottie-react": "^2.4.1",

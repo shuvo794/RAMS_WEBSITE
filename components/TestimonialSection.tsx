@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BASE_URL, GET_TESTIMONIALS } from "@/lib/config";
 import Image from "next/image";
-
+import { motion, AnimatePresence } from "framer-motion";
 interface Testimonial {
   id: number;
   review: string;
@@ -197,64 +197,63 @@ export default function TestimonialSection() {
         </div>
 
         <div className="relative">
-          {/* Fixed height grid container */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 min-h-[400px]">
-            {getCurrentPageItems().map((testimonial: Testimonial) => (
-              <div
-                key={testimonial.id}
-                className="bg-white pt-16 pb-6 px-6 sm:px-8 rounded-lg shadow-xl text-center relative mx-auto w-full max-w-xs sm:max-w-sm text-gray-900 min-h-[350px] flex flex-col"
-              >
-                {/* Image wrapper with fixed size and aspect ratio */}
-                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-24 h-24 flex-shrink-0">
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={
-                        testimonial.image &&
-                        testimonial.image !==
-                          "/placeholder.svg?height=80&width=80"
-                          ? `${BASE_URL}${testimonial.image}`
-                          : "/Testimunial.jpg"
-                      }
-                      alt={testimonial.name}
-                      fill
-                      sizes="96px"
-                      className="rounded-full border-4 border-white shadow-md object-cover"
-                      priority={currentPage === 0} // Prioritize first page images
-                    />
+            {getCurrentPageItems().map(
+              (testimonial: Testimonial, index: number) => (
+                <div
+                  key={`${currentPage}-${testimonial.id}`} // ✅ include page in key
+                  className="bg-white pt-16 pb-6 px-6 sm:px-8 rounded-lg shadow-xl text-center relative mx-auto w-full max-w-xs sm:max-w-sm text-gray-900 min-h-[350px] flex flex-col
+          transform transition-transform duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-2xl"
+                >
+                  {/* Image wrapper */}
+                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-24 h-24 flex-shrink-0">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={
+                          testimonial.image &&
+                          testimonial.image !==
+                            "/placeholder.svg?height=80&width=80"
+                            ? `${BASE_URL}${testimonial.image}`
+                            : "/Testimunial.jpg"
+                        }
+                        alt={testimonial.name}
+                        fill
+                        sizes="96px"
+                        className="rounded-full border-4 border-white shadow-md object-cover"
+                        priority={currentPage === 0}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="mt-2 flex-1 flex flex-col">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 min-h-[24px]">
+                      {testimonial.name}
+                    </h3>
+
+                    <div className="min-h-[32px] flex items-center justify-center">
+                      {testimonial.review_star && (
+                        <StarRating count={testimonial.review_star} />
+                      )}
+                    </div>
+
+                    <div className="flex-1 flex items-start mt-3 sm:mt-4">
+                      <p
+                        className="italic text-gray-600 text-sm leading-relaxed min-h-[80px]"
+                        dangerouslySetInnerHTML={{ __html: testimonial.review }}
+                      />
+                    </div>
+
+                    <p className="text-xs text-gray-500 mt-2 min-h-[16px]">
+                      {testimonial.designation}
+                    </p>
                   </div>
                 </div>
-
-                {/* Content with fixed structure */}
-                <div className="mt-2 flex-1 flex flex-col">
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 min-h-[24px]">
-                    {testimonial.name}
-                  </h3>
-
-                  {/* Fixed height star rating container */}
-                  <div className="min-h-[32px] flex items-center justify-center">
-                    {testimonial.review_star && (
-                      <StarRating count={testimonial.review_star} />
-                    )}
-                  </div>
-
-                  {/* Fixed height review container */}
-                  <div className="flex-1 flex items-start mt-3 sm:mt-4">
-                    <p
-                      className="italic text-gray-600 text-sm leading-relaxed min-h-[80px]"
-                      dangerouslySetInnerHTML={{ __html: testimonial.review }}
-                    />
-                  </div>
-
-                  {/* Fixed height designation */}
-                  <p className="text-xs text-gray-500 mt-2 min-h-[16px]">
-                    {testimonial.designation}
-                  </p>
-                </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
 
-          {/* Fixed height pagination buttons */}
+          {/* Pagination Buttons */}
           <div className="flex justify-center mt-6 sm:mt-8 space-x-4 h-12 items-center">
             <Button
               size="icon"
