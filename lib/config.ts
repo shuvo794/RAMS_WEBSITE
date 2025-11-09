@@ -2,14 +2,14 @@ const isProduction = process.env.NODE_ENV === "production";
 
 export const BASE_URL = isProduction
   ? "https://api.ramsint.com"
-  : "http://192.168.68.129:8006";
+  : "http://192.168.0.242:8010";
 // export const BASE_URL = isProduction
 //   ? "https://api.ramsint.com/"
 //   : "https://api.ramsint.com";
 
 export const ADMIN_URL = isProduction
   ? "https://api.ramsint.com"
-  : "http://192.168.68.129:8006";
+  : "http://192.168.68.0:8010";
 // export const ADMIN_URL = isProduction
 //   ? "https://api.ramsint.com"
 //   : "https://api.ramsint.com";
