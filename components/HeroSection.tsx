@@ -62,7 +62,7 @@ export default async function HeroSection() {
                   <p
                     className="text-lg max-w-lg mx-auto lg:mx-0 min-h-[80px]"
                     dangerouslySetInnerHTML={{
-                      __html: hero.description || "",
+                      __html: hero.description,
                     }}
                   ></p>
                 </>
