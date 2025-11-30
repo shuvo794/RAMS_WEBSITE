@@ -449,7 +449,7 @@ export default function CreatPage() {
           {/* Sign In Redirect */}
           <button
             type="button"
-            onClick={() => router.push("/sign-in")}
+            onClick={() => router.push("/")}
             style={buttonStyle}
           >
             SIGN IN
