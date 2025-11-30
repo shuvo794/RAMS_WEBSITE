@@ -102,7 +102,7 @@ export default function CreatPage() {
         showConfirmButton: false,
         timer: 2000,
       }).then(() => {
-        router.push("/otpSend");
+        router.push("/otp-send");
       });
     } catch {
       Swal.fire("Error", "sign-up failed. Please try again.", "error");

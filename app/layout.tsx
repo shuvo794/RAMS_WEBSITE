@@ -34,7 +34,7 @@ export default function RootLayout({
     pathname === "/open-ticket" ||
     pathname === "/ticketCreate" ||
     // pathname === "/VerifyOtp" ||
-    // pathname === "/otpSend" ||
+    // pathname === "/otp-send" ||
     pathname === "/info-update";
 
   return (
