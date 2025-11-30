@@ -46,7 +46,7 @@ export default async function HeroSection() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-20 relative z-10 py-20 lg:py-28">
           <div className="flex flex-col-reverse lg:flex-row items-center lg:items-start gap-12">
             {/* Left Text */}
-            <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6 text-white">
+            <div className="w-full lg:w-1/2 text-center lg:text-left mt-24 space-y-6 text-white">
               {!hero ? (
                 <div className="animate-pulse space-y-4">
                   <div className="bg-gray-300 h-10 w-3/4 rounded mx-auto lg:mx-0" />
